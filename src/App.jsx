@@ -1,8 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Navbar from "./components/Navbar";
 
 function App(props) {
   return (
-    <div className="text-[200px] text-blue-600 font-bold">Hello world</div>
+    <Fragment>
+      <Navbar />
+    </Fragment>
   );
 }
 
