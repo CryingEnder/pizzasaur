@@ -33,7 +33,7 @@ function Navbar(props) {
     <Fragment>
       <Container
         tag="nav"
-        stylesOut={"bg-red-darker sticky top-0 -mb-1 laptop:m-0"}
+        stylesOut={"bg-red-darker sticky top-0 -mb-1 laptop:m-0 z-20"}
         stylesIn={
           "flex flex-row justify-between items-center p-1 text-xl laptop:text-2xl laptop:px-4 border-solid border-b-4 border-zinc-100 text-zinc-100 font-semibold"
         }
@@ -68,11 +68,11 @@ function Navbar(props) {
         </ul>
       </Container>
       <div
-        className={`bg-white-faded-50 text-lg tablet:text-xl text-zinc-100 w-full h-screen fixed flex flex-row justify-center items-start top-0 laptop:hidden ${visibility}`}
+        className={`bg-white-faded-50 text-lg tablet:text-xl text-zinc-100 z-30 w-full h-screen fixed flex flex-row justify-center items-start top-0 laptop:hidden ${visibility}`}
       >
         <ul
           ref={ref}
-          className="relative flex flex-col justify-start items-start rounded-lg p-6 z-10 m-3 w-60 tablet:w-72 bg-gradient-to-b from-red-dark to-red-darker drop-shadow-md"
+          className="relative flex flex-col justify-start items-start rounded-lg p-6 m-3 w-60 tablet:w-72 bg-gradient-to-b from-red-dark to-red-darker drop-shadow-md"
         >
           <Cross
             onClick={closeMenu}

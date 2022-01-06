@@ -6,10 +6,10 @@ function Hero(props) {
   return (
     <Container
       tag="section"
-      stylesOut={"bg-gradient-to-b from-red-darker to-red-dark"}
+      stylesOut={"bg-gradient-to-b from-red-darker to-red-dark z-10"}
       stylesIn={"flex flex-row justify-center items-center"}
     >
-      <HeroPicture className={"laptop:my-8 laptop:px-2 w-full"} />
+      <HeroPicture className={"laptop:my-12 laptop:px-2 w-full"} />
     </Container>
   );
 }
