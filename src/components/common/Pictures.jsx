@@ -23,7 +23,7 @@ function HeroPicture(props) {
       />
       <img
         src={heroImgLargerOld}
-        className="w-full object-cover aspect-[1/0.77] tablet:aspect-[1/0.6] laptop:aspect-auto"
+        className="w-full object-cover aspect-[1/0.77] tablet:aspect-[1/0.6] laptop:aspect-auto laptop:drop-shadow-lg"
         alt="A pizza banner"
       />
     </picture>
