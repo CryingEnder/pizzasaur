@@ -35,7 +35,7 @@ function Navbar(props) {
         tag="nav"
         stylesOut={"bg-red-darker sticky top-0 -mb-1 laptop:m-0 z-20"}
         stylesIn={
-          "flex flex-row justify-between items-center p-1 text-xl laptop:text-2xl laptop:px-4 border-solid border-b-4 border-zinc-100 text-zinc-100 font-semibold"
+          "flex flex-row justify-between items-center p-1 text-xl laptop:text-2xl laptop:px-4 border-solid border-b-4 border-zinc-100 font-heading font-medium text-zinc-100"
         }
       >
         <img
@@ -44,10 +44,14 @@ function Navbar(props) {
           alt="Pizzasaur logo"
         />
         <ul className="flex flex-row justify-center laptop:justify-between items-center space-x-4 laptop:w-full">
-          <li className="hidden laptop:flex flex-row justify-center items-center space-x-4 drop-shadow-lg">
-            <div>Contact</div>
-            <div>Faq</div>
-          </li>
+          <div className="hidden laptop:flex flex-row justify-center items-center space-x-4 drop-shadow-lg">
+            <li className="transition-colors hover:text-zinc-300 cursor-pointer">
+              Contact
+            </li>
+            <li className="transition-colors hover:text-zinc-300 cursor-pointer">
+              Faq
+            </li>
+          </div>
           <li className="drop-shadow-lg">
             <img
               className="hidden laptop:block w-56 cursor-pointer"
@@ -55,20 +59,20 @@ function Navbar(props) {
               alt="Pizzasaur logo"
             />
           </li>
-          <li className="flex flex-row justify-center items-center space-x-2 laptop:space-x-4 drop-shadow-lg">
-            <div className="hidden tablet:block tablet:mr-2 laptop:m-0">
+          <div className="flex flex-row justify-center items-center space-x-2 laptop:space-x-4 drop-shadow-lg">
+            <li className="hidden tablet:block tablet:mr-2 laptop:m-0 transition-colors hover:text-zinc-300 cursor-pointer">
               Order online
-            </div>
-            <CartIcon className="fill-current w-6 tablet:w-7 laptop:w-8 cursor-pointer" />
+            </li>
+            <CartIcon className="fill-current w-6 tablet:w-7 laptop:w-8 cursor-pointer transition-colors hover:text-zinc-300" />
             <MenuButton
               onClick={showMenu}
               className="fill-current w-6 tablet:w-7 laptop:w-8 laptop:hidden cursor-pointer"
             />
-          </li>
+          </div>
         </ul>
       </Container>
       <div
-        className={`bg-white-faded-50 text-lg tablet:text-xl text-zinc-100 z-30 w-full h-screen fixed flex flex-row justify-center items-start top-0 laptop:hidden ${visibility}`}
+        className={`bg-white-faded-50 font-heading font-medium text-lg tablet:text-xl text-zinc-100 z-30 w-full h-screen fixed flex flex-row justify-center items-start top-0 laptop:hidden ${visibility}`}
       >
         <ul
           ref={ref}
@@ -76,11 +80,17 @@ function Navbar(props) {
         >
           <Cross
             onClick={closeMenu}
-            className="fill-current absolute top-6 right-4 w-7 tablet:w-8 cursor-pointer drop-shadow-md"
+            className="fill-current absolute top-6 right-4 w-7 tablet:w-8 cursor-pointer transition-colors hover:text-zinc-300"
           />
-          <li className="mb-4 drop-shadow-md">Order online</li>
-          <li className="mb-4 drop-shadow-md">Faq</li>
-          <li className="drop-shadow-md">Contact</li>
+          <li className="mb-4  transition-colors hover:text-zinc-300 cursor-pointer">
+            Order online
+          </li>
+          <li className="mb-4  transition-colors hover:text-zinc-300 cursor-pointer">
+            Faq
+          </li>
+          <li className=" transition-colors hover:text-zinc-300 cursor-pointer">
+            Contact
+          </li>
         </ul>
       </div>
     </Fragment>
