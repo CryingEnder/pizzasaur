@@ -14,6 +14,7 @@ module.exports = {
         red: {
           dark: "#693f48",
           darker: "#50353b",
+          darkest: "#432c31",
         },
         white: {
           "faded-50": "rgba(255, 255, 255, 0.7)",
@@ -21,13 +22,30 @@ module.exports = {
         },
       },
       fontFamily: {
-        raleway: ["Raleway"],
+        josefin: ["josefin-sans"],
+        maven: ["maven-pro"],
       },
     },
     fontFamily: {
       sans: [
-        "raleway",
+        "josefin-sans",
         "ui-sans-serif",
+        "system-ui",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica Neue",
+        "Arial",
+        "Noto Sans",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji",
+      ],
+      heading: [
+        "maven-pro",
         "system-ui",
         "-apple-system",
         "BlinkMacSystemFont",

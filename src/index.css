@@ -4,37 +4,82 @@
 
 @layer base {
   @font-face {
-    font-family: "Raleway";
-    src: url("css/fonts/Raleway-Regular.woff2") format("woff2"),
-      url("css/fonts/Raleway-Regular.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Raleway";
-    src: url("css/fonts/Raleway-Light.woff2") format("woff2"),
-      url("Raleway-Light.woff") format("woff");
+    font-family: "josefin-sans";
+    src: url("css/fonts/JosefinSans-Light.woff2") format("woff2"),
+      url("css/fonts/JosefinSans-Light.woff") format("woff");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
   }
 
   @font-face {
-    font-family: "Raleway";
-    src: url("css/fonts/Raleway-SemiBold.woff2") format("woff2"),
-      url("css/fonts/Raleway-SemiBold.woff") format("woff");
+    font-family: "josefin-sans";
+    src: url("css/fonts/JosefinSans-Bold.woff2") format("woff2"),
+      url("css/fonts/JosefinSans-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "josefin-sans";
+    src: url("css/fonts/JosefinSans-Regular.woff2") format("woff2"),
+      url("css/fonts/JosefinSans-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "josefin-sans";
+    src: url("css/fonts/JosefinSans-SemiBold.woff2") format("woff2"),
+      url("css/fonts/JosefinSans-SemiBold.woff") format("woff");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
   }
 
   @font-face {
-    font-family: "Raleway";
-    src: url("css/fonts/Raleway-Bold.woff2") format("woff2"),
-      url("css/fonts/Raleway-Bold.woff") format("woff");
+    font-family: "josefin-sans";
+    src: url("css/fonts/JosefinSans-Medium.woff2") format("woff2"),
+      url("css/fonts/JosefinSans-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "maven-pro";
+    src: url("css/fonts/MavenPro-SemiBold.woff2") format("woff2"),
+      url("css/fonts/MavenPro-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "maven-pro";
+    src: url("css/fonts/MavenPro-Regular.woff2") format("woff2"),
+      url("css/fonts/MavenPro-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "maven-pro";
+    src: url("css/fonts/MavenPro-Bold.woff2") format("woff2"),
+      url("css/fonts/MavenPro-Bold.woff") format("woff");
     font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "maven-pro";
+    src: url("css/fonts/MavenPro-Medium.woff2") format("woff2"),
+      url("css/fonts/MavenPro-Medium.woff") format("woff");
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
   }
