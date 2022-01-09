@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, Fragment } from "react";
 import Container from "./common/Container";
-import { logo } from "../utils/images";
+import List from "./common/List";
+import Logo from "./common/Logo";
 import { CartIcon, Cross, MenuButton } from "./common/Icons";
 
 function Navbar(props) {
@@ -38,60 +39,58 @@ function Navbar(props) {
           "flex flex-row justify-between items-center p-1 laptop:px-4 border-solid border-b-4 border-zinc-100 text-zinc-100"
         }
       >
-        <img
-          className="cursor-pointer w-40 tablet:w-44 laptop:hidden"
-          src={logo}
-          alt="Pizzasaur logo"
+        <List
+          className="hidden laptop:flex flex-row justify-center items-center space-x-4 drop-shadow-lg"
+          items={[
+            { content: "Contact", key: "contact1" },
+            { content: "Faq", key: "faq1" },
+          ]}
         />
-        <ul className="flex flex-row justify-center laptop:justify-between items-center space-x-4 laptop:w-full">
-          <div className="hidden laptop:flex flex-row justify-center items-center space-x-4 drop-shadow-lg">
-            <li className="transition-colors hover:text-zinc-300 cursor-pointer">
-              Contact
-            </li>
-            <li className="transition-colors hover:text-zinc-300 cursor-pointer">
-              Faq
-            </li>
-          </div>
-          <li className="drop-shadow-lg">
-            <img
-              className="hidden laptop:block w-56 desktop:w-64 cursor-pointer"
-              src={logo}
-              alt="Pizzasaur logo"
-            />
-          </li>
-          <div className="flex flex-row justify-center items-center space-x-2 laptop:space-x-4 drop-shadow-lg">
-            <li className="hidden tablet:block tablet:mr-2 laptop:m-0 transition-colors hover:text-zinc-300 cursor-pointer">
-              Order online
-            </li>
-            <CartIcon className="fill-current w-7 tablet:w-8 laptop:w-9 cursor-pointer transition-colors hover:text-zinc-300" />
-            <MenuButton
-              onClick={showMenu}
-              className="fill-current w-7 tablet:w-8 laptop:w-9 laptop:hidden cursor-pointer"
-            />
-          </div>
-        </ul>
+        <Logo />
+        <List
+          showMenu={showMenu}
+          className="flex flex-row justify-center items-center space-x-2 laptop:space-x-4 drop-shadow-lg"
+          items={[
+            {
+              content: "Order online",
+              key: "orderonline",
+              specialStyle: "hidden tablet:block tablet:mr-2 laptop:m-0",
+            },
+            {
+              content: <CartIcon />,
+              key: "shoppingcart",
+              specialStyle: "fill-current w-7 tablet:w-8 laptop:w-9",
+            },
+            {
+              content: <MenuButton />,
+              key: "menubutton",
+              specialStyle:
+                "fill-current w-7 tablet:w-8 laptop:w-9 laptop:hidden",
+              showMenu: true,
+            },
+          ]}
+        />
       </Container>
       <div
         className={`bg-white-faded-50 text-zinc-100 z-30 w-full h-screen fixed flex flex-row justify-center items-start top-0 laptop:hidden ${visibility}`}
       >
-        <ul
+        <div
+          className="relative text-xl tablet:text-2xl rounded-lg p-6 m-3 w-60 tablet:w-72 bg-gradient-to-b from-red-dark to-red-darker drop-shadow-md"
           ref={ref}
-          className="relative text-xl tablet:text-2xl flex flex-col justify-start items-start rounded-lg p-6 m-3 w-60 tablet:w-72 bg-gradient-to-b from-red-dark to-red-darker drop-shadow-md"
         >
           <Cross
             onClick={closeMenu}
             className="fill-current absolute top-6 right-4 w-7 tablet:w-8 cursor-pointer transition-colors hover:text-zinc-300"
           />
-          <li className="mb-4 transition-colors hover:text-zinc-300 cursor-pointer">
-            Order online
-          </li>
-          <li className="mb-4 transition-colors hover:text-zinc-300 cursor-pointer">
-            Faq
-          </li>
-          <li className=" transition-colors hover:text-zinc-300 cursor-pointer">
-            Contact
-          </li>
-        </ul>
+          <List
+            className="flex flex-col justify-center items-start space-y-4"
+            items={[
+              { content: "Order online", key: "orderonline2" },
+              { content: "Faq", key: "faq2" },
+              { content: "Contact", key: "contact2" },
+            ]}
+          />
+        </div>
       </div>
     </Fragment>
   );

@@ -25,6 +25,15 @@ module.exports = {
         josefin: ["josefin-sans"],
         maven: ["maven-pro"],
       },
+      keyframes: {
+        "opacity-slow": {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 100 },
+        },
+      },
+      animation: {
+        "opacity-slow": "opacity-slow .2s ease-in-out",
+      },
     },
     fontFamily: {
       text: [
