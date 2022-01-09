@@ -107,4 +107,8 @@
   footer {
     @apply text-xl tablet:text-2xl desktop:text-3xl font-text;
   }
+
+  button {
+    @apply font-ui font-semibold;
+  }
 }
