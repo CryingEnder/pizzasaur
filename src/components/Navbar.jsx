@@ -34,9 +34,11 @@ function Navbar(props) {
     <Fragment>
       <Container
         tag="nav"
-        stylesOut={"bg-red-darker sticky top-0 -mb-1 laptop:m-0 z-20"}
+        stylesOut={
+          "bg-red-darker sticky top-0 -mb-1 laptop:m-0 z-20 border-solid border-b-4 border-zinc-100"
+        }
         stylesIn={
-          "flex flex-row justify-between items-center p-1 laptop:px-4 border-solid border-b-4 border-zinc-100 text-zinc-100"
+          "flex flex-row justify-between items-center p-1 laptop:px-4 text-zinc-100"
         }
       >
         <List
