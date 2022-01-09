@@ -1,48 +1,65 @@
 import React from "react";
 import Container from "./common/Container";
-import { logo } from "../utils/images";
+import Logo from "./common/Logo";
+import Heading from "./common/Heading";
 import { Facebook, Instagram, Twitter, Phone } from "./common/Icons";
+import List from "./common/List";
 
 function Footer(props) {
   return (
-    <div className="w-full relative h-2 text-zinc-100">
-      <div className="w-full text-center drop-shadow-md absolute top-0">
-        <div className="bg-yellow-300 h-1 tablet:h-2 mb-0.5 tablet:mb-1"></div>
-        <div className="bg-yellow-500 h-1"></div>
-        <div className="-translate-y-[55%] absolute left-0 right-0 mx-auto w-fit p-0.5 tablet:p-1 cursor-pointer transition-colors bg-red-darker hover:bg-red-darkest border-solid border-4 tablet:border-8 border-yellow-300 rounded-full">
-          <h2 className="border-solid border-4 border-yellow-500 px-6 py-2 tablet:py-3 rounded-full">
-            Order now
-          </h2>
-        </div>
-      </div>
+    <footer className="w-full text-zinc-100 bg-red-darker z-10">
+      <Heading content="Order now" isButton={true} />
       <Container
-        tag="footer"
-        stylesOut={"bg-red-darker"}
+        tag="section"
         stylesIn={
-          "p-4 flex flex-col justify-center items-center laptop:items-end pt-20 tablet:pt-24 laptop:flex-row laptop:justify-between"
+          "p-4 flex flex-col justify-center items-center space-y-6 pt-14 tablet:pt-16 laptop:items-end laptop:flex-row laptop:justify-between"
         }
       >
-        <div className="flex flex-col justify-center items-center text-center space-y-2 mb-8 laptop:items-end laptop:text-right laptop:space-y-0 laptop:mb-0 laptop:order-1">
-          <div className="laptop:order-1">
-            <div>1111 Example Street</div>
-            <div className="flex flex-row items-center justify-center laptop:justify-end space-x-1">
-              <Phone className=" mb-1 fill-current w-6 tablet:w-7 laptop:w-8 desktop:w-9" />
-              <span>+123 456 789</span>
-            </div>
-            <div>example@domain.com</div>
-          </div>
-          <div className="flex flex-row justify-center items-center space-x-2 laptop:pb-4">
-            <Facebook className="w-10 tablet:w-12 desktop:w-14 transition-colors fill-current hover:text-zinc-300 cursor-pointer" />
-            <Instagram className="w-10 tablet:w-12 desktop:w-14 transition-colors fill-current hover:text-zinc-300 cursor-pointer" />
-            <Twitter className="w-10 tablet:w-12 desktop:w-14 transition-colors fill-current hover:text-zinc-300 cursor-pointer" />
-          </div>
+        <div className="flex flex-col text-center laptop:text-right space-y-2 laptop:order-1">
+          <List
+            itemsStyle=""
+            className="laptop:order-1"
+            items={[
+              { content: "1111 Example Street", key: "street1" },
+              {
+                content: (
+                  <div>
+                    <Phone className="inline mb-1 mr-1 fill-current w-6 tablet:w-7 laptop:w-8 desktop:w-9" />
+                    <span>+123 456 789</span>
+                  </div>
+                ),
+                key: "phonenumber",
+              },
+              { content: "example@domain.com", key: "customerserviceemail" },
+            ]}
+          />
+          <List
+            className="flex flex-row justify-center laptop:justify-end space-x-2 pb-3"
+            items={[
+              {
+                content: <Facebook />,
+                key: "facebook",
+                specialStyle: "w-10 tablet:w-12 desktop:w-14 fill-current",
+              },
+              {
+                content: <Instagram />,
+                key: "instagram",
+                specialStyle: "w-10 tablet:w-12 desktop:w-14 fill-current",
+              },
+              {
+                content: <Twitter />,
+                key: "twitter",
+                specialStyle: "w-10 tablet:w-12 desktop:w-14 fill-current",
+              },
+            ]}
+          />
         </div>
         <div className="flex flex-col justify-center items-center laptop:items-start">
-          <img src={logo} className="w-56 laptop:w-72" alt="Pizzasaur logo" />
+          <Logo />
           <div>Copyright &copy; 2022 Cristian Botez</div>
         </div>
       </Container>
-    </div>
+    </footer>
   );
 }
 
