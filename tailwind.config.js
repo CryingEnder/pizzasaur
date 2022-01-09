@@ -27,7 +27,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: [
+      text: [
         "josefin-sans",
         "ui-sans-serif",
         "system-ui",
@@ -44,7 +44,7 @@ module.exports = {
         "Segoe UI Symbol",
         "Noto Color Emoji",
       ],
-      heading: [
+      ui: [
         "maven-pro",
         "system-ui",
         "-apple-system",

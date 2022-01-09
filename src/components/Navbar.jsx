@@ -35,7 +35,7 @@ function Navbar(props) {
         tag="nav"
         stylesOut={"bg-red-darker sticky top-0 -mb-1 laptop:m-0 z-20"}
         stylesIn={
-          "flex flex-row justify-between items-center p-1 text-xl laptop:text-2xl laptop:px-4 border-solid border-b-4 border-zinc-100 font-heading font-medium text-zinc-100"
+          "flex flex-row justify-between items-center p-1 laptop:px-4 border-solid border-b-4 border-zinc-100 text-zinc-100"
         }
       >
         <img
@@ -54,7 +54,7 @@ function Navbar(props) {
           </div>
           <li className="drop-shadow-lg">
             <img
-              className="hidden laptop:block w-56 cursor-pointer"
+              className="hidden laptop:block w-56 desktop:w-64 cursor-pointer"
               src={logo}
               alt="Pizzasaur logo"
             />
@@ -63,29 +63,29 @@ function Navbar(props) {
             <li className="hidden tablet:block tablet:mr-2 laptop:m-0 transition-colors hover:text-zinc-300 cursor-pointer">
               Order online
             </li>
-            <CartIcon className="fill-current w-6 tablet:w-7 laptop:w-8 cursor-pointer transition-colors hover:text-zinc-300" />
+            <CartIcon className="fill-current w-7 tablet:w-8 laptop:w-9 cursor-pointer transition-colors hover:text-zinc-300" />
             <MenuButton
               onClick={showMenu}
-              className="fill-current w-6 tablet:w-7 laptop:w-8 laptop:hidden cursor-pointer"
+              className="fill-current w-7 tablet:w-8 laptop:w-9 laptop:hidden cursor-pointer"
             />
           </div>
         </ul>
       </Container>
       <div
-        className={`bg-white-faded-50 font-heading font-medium text-lg tablet:text-xl text-zinc-100 z-30 w-full h-screen fixed flex flex-row justify-center items-start top-0 laptop:hidden ${visibility}`}
+        className={`bg-white-faded-50 text-zinc-100 z-30 w-full h-screen fixed flex flex-row justify-center items-start top-0 laptop:hidden ${visibility}`}
       >
         <ul
           ref={ref}
-          className="relative flex flex-col justify-start items-start rounded-lg p-6 m-3 w-60 tablet:w-72 bg-gradient-to-b from-red-dark to-red-darker drop-shadow-md"
+          className="relative text-xl tablet:text-2xl flex flex-col justify-start items-start rounded-lg p-6 m-3 w-60 tablet:w-72 bg-gradient-to-b from-red-dark to-red-darker drop-shadow-md"
         >
           <Cross
             onClick={closeMenu}
             className="fill-current absolute top-6 right-4 w-7 tablet:w-8 cursor-pointer transition-colors hover:text-zinc-300"
           />
-          <li className="mb-4  transition-colors hover:text-zinc-300 cursor-pointer">
+          <li className="mb-4 transition-colors hover:text-zinc-300 cursor-pointer">
             Order online
           </li>
-          <li className="mb-4  transition-colors hover:text-zinc-300 cursor-pointer">
+          <li className="mb-4 transition-colors hover:text-zinc-300 cursor-pointer">
             Faq
           </li>
           <li className=" transition-colors hover:text-zinc-300 cursor-pointer">
