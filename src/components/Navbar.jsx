@@ -85,6 +85,7 @@ function Navbar(props) {
             className="fill-current absolute top-6 right-4 w-7 tablet:w-8 cursor-pointer transition-colors hover:text-zinc-300"
           />
           <List
+            closeMenu={closeMenu}
             className="flex flex-col justify-center items-start space-y-4"
             items={[
               { content: "Order online", key: "orderonline2" },

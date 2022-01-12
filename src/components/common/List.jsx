@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function List({ items, itemsStyle, children, showMenu, ...props }) {
+function List({ items, itemsStyle, children, showMenu, closeMenu, ...props }) {
   function triggerAction(item) {
     if (item.showMenu) showMenu();
+    else if (closeMenu) closeMenu();
   }
 
   return (
@@ -37,6 +38,7 @@ List.propTypes = {
   items: PropTypes.array.isRequired,
   itemsStyle: PropTypes.string,
   showMenu: PropTypes.func,
+  closeMenu: PropTypes.func,
 };
 
 export default List;
