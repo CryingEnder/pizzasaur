@@ -45,7 +45,7 @@ function Navbar(props) {
           className="hidden laptop:flex flex-row justify-center items-center space-x-4 drop-shadow-lg"
           items={[
             { content: "Contact", key: "contact1" },
-            { content: "Faq", key: "faq1" },
+            { content: "Faq", key: "faq1", link: "faq" },
           ]}
         />
         <Logo />
@@ -88,7 +88,7 @@ function Navbar(props) {
             className="flex flex-col justify-center items-start space-y-4"
             items={[
               { content: "Order online", key: "orderonline2" },
-              { content: "Faq", key: "faq2" },
+              { content: "Faq", key: "faq2", link: "faq" },
               { content: "Contact", key: "contact2" },
             ]}
           />

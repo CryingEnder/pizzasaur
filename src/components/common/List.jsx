@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function List({ items, itemsStyle, children, showMenu, ...props }) {
   function triggerAction(item) {
@@ -11,7 +12,8 @@ function List({ items, itemsStyle, children, showMenu, ...props }) {
       {items.map(
         (i) =>
           i && (
-            <li
+            <Link
+              to={i.link ? i.link : "/"}
               key={i.key}
               onClick={() => triggerAction(i)}
               className={
@@ -19,7 +21,7 @@ function List({ items, itemsStyle, children, showMenu, ...props }) {
               }
             >
               {i.content}
-            </li>
+            </Link>
           )
       )}
       {children}
