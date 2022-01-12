@@ -17,13 +17,12 @@ function App(props) {
             <Fragment>
               <Hero />
               <AboutUs />
-              <Footer />
             </Fragment>
           }
         />
         <Route path="faq" element={<Faq />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -88,6 +88,10 @@
     @apply scroll-smooth;
   }
 
+  body {
+    @apply bg-red-darker;
+  }
+
   nav {
     @apply text-2xl desktop:text-3xl font-ui font-medium;
   }

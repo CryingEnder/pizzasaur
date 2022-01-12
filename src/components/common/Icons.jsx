@@ -1,5 +1,13 @@
 import React from "react";
 
+function AngleDown({ ...props }) {
+  return (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12,17.169a4.985,4.985,0,0,1-3.536-1.462L.293,7.535A1,1,0,0,1,1.707,6.121l8.171,8.172a3.005,3.005,0,0,0,4.244,0l8.171-8.172a1,1,0,1,1,1.414,1.414l-8.171,8.172A4.985,4.985,0,0,1,12,17.169Z" />
+    </svg>
+  );
+}
+
 function CartIcon({ ...props }) {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -85,4 +93,29 @@ function Phone({ ...props }) {
   );
 }
 
-export { CartIcon, Cross, MenuButton, Facebook, Instagram, Twitter, Phone };
+function QuestionMark({ ...props }) {
+  return (
+    <svg
+      {...props}
+      viewBox="0 0 24 24"
+      width="512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g>
+        <path d="m12 1a11 11 0 1 0 11 11 11 11 0 0 0 -11-11zm0 18a1.5 1.5 0 1 1 1.5-1.5 1.5 1.5 0 0 1 -1.5 1.5zm1.73-7.52a1.05 1.05 0 0 0 -.73 1v.52a1 1 0 0 1 -2 0v-.51a3.07 3.07 0 0 1 2.09-2.91 1.32 1.32 0 0 0 -.41-2.58h-1.36a1.32 1.32 0 0 0 -1.32 1.32v.68a1 1 0 0 1 -2 0v-.68a3.32 3.32 0 0 1 3.32-3.32h1.36a3.33 3.33 0 0 1 1.05 6.48z" />
+      </g>
+    </svg>
+  );
+}
+
+export {
+  AngleDown,
+  CartIcon,
+  Cross,
+  MenuButton,
+  Facebook,
+  Instagram,
+  Twitter,
+  Phone,
+  QuestionMark,
+};
