@@ -84,6 +84,10 @@
     font-display: swap;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   nav {
     @apply text-2xl desktop:text-3xl font-ui font-medium;
   }
