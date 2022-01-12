@@ -14,7 +14,7 @@ function List({ items, itemsStyle, children, showMenu, closeMenu, ...props }) {
         (i) =>
           i && (
             <Link
-              to={i.link ? i.link : "/"}
+              to={i.link ? i.link : (e) => e.preventDefault()}
               key={i.key}
               onClick={() => triggerAction(i)}
               className={
