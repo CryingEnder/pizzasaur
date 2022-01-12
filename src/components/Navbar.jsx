@@ -42,7 +42,7 @@ function Navbar(props) {
         }
       >
         <List
-          className="hidden laptop:flex flex-row justify-center items-center space-x-4 drop-shadow-lg"
+          className="hidden laptop:flex flex-row justify-center items-center space-x-5 drop-shadow-lg"
           items={[
             { content: "Contact", key: "contact1" },
             { content: "Faq", key: "faq1", link: "faq" },
@@ -51,7 +51,7 @@ function Navbar(props) {
         <Logo />
         <List
           showMenu={showMenu}
-          className="flex flex-row justify-center items-center space-x-2 laptop:space-x-4 drop-shadow-lg"
+          className="flex flex-row justify-center items-center space-x-2 laptop:space-x-5 drop-shadow-lg"
           items={[
             {
               content: "Order online",
