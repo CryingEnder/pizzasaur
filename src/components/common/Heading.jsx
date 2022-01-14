@@ -1,7 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function Heading({ isButton, content, ...props }) {
+function Heading({ isButton, link, content, ...props }) {
+  function scrollUp() {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <div {...props} className="w-full text-center drop-shadow-md relative">
       <div className="bg-yellow-300 h-1 tablet:h-2 mb-0.5 tablet:mb-1"></div>
@@ -18,7 +23,12 @@ function Heading({ isButton, content, ...props }) {
             type="button"
             className="border-solid border-4 border-yellow-500 px-6 py-2 tablet:py-3 rounded-full text-2xl tablet-small:text-3xl tablet:text-4xl laptop:text-5xl desktop:text-6xl"
           >
-            {content}
+            <Link
+              onClick={scrollUp}
+              to={isButton && link ? link : (e) => e.preventDefault()}
+            >
+              {content}
+            </Link>
           </button>
         </div>
       )}
@@ -29,11 +39,13 @@ function Heading({ isButton, content, ...props }) {
 Heading.defaultProps = {
   content: "",
   isButton: false,
+  link: "",
 };
 
 Heading.propTypes = {
   content: PropTypes.string,
   isButton: PropTypes.bool,
+  link: PropTypes.string,
 };
 
 export default Heading;
