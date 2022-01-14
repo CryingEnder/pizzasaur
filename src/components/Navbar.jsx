@@ -44,8 +44,8 @@ function Navbar(props) {
         <List
           className="hidden laptop:flex flex-row justify-center items-center space-x-5 drop-shadow-lg"
           items={[
-            { content: "Contact", key: "contact1" },
-            { content: "Faq", key: "faq1", link: "faq" },
+            { content: "Contact", key: "contact1", scrollUp: true },
+            { content: "Faq", key: "faq1", link: "faq", scrollUp: true },
           ]}
         />
         <Logo />
@@ -56,7 +56,9 @@ function Navbar(props) {
             {
               content: "Order online",
               key: "orderonline",
+              link: "menu",
               specialStyle: "hidden tablet:block tablet:mr-2 laptop:m-0",
+              scrollUp: true,
             },
             {
               content: <CartIcon />,
@@ -88,9 +90,14 @@ function Navbar(props) {
             closeMenu={closeMenu}
             className="flex flex-col justify-center items-start space-y-4"
             items={[
-              { content: "Order online", key: "orderonline2" },
-              { content: "Faq", key: "faq2", link: "faq" },
-              { content: "Contact", key: "contact2" },
+              {
+                content: "Order online",
+                key: "orderonline2",
+                link: "menu",
+                scrollUp: true,
+              },
+              { content: "Faq", key: "faq2", link: "faq", scrollUp: true },
+              { content: "Contact", key: "contact2", scrollUp: true },
             ]}
           />
         </div>

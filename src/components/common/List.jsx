@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function List({ items, itemsStyle, children, showMenu, closeMenu, ...props }) {
+  function scrollUp() {
+    window.scrollTo(0, 0);
+  }
+
   function triggerAction(item) {
+    if (item.scrollUp) scrollUp();
+
     if (item.showMenu) showMenu();
     else if (closeMenu) closeMenu();
   }
