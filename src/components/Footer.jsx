@@ -54,7 +54,7 @@ function Footer(props) {
             ]}
           />
         </div>
-        <div className="flex flex-col justify-center items-center laptop:items-start">
+        <div className="flex flex-col justify-center items-center laptop:items-start text-center">
           <Logo />
           <div>Copyright &copy; 2022 Cristian Botez</div>
         </div>
