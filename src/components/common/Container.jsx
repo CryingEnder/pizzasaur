@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function Container({ children, stylesOut, stylesIn, tag: Tag, ...props }) {
   return (
     <Tag className={`w-full ${stylesOut}`} {...props}>
-      <div className={`mx-auto max-w-screen-desktop ${stylesIn}`}>
+      <div className={`mx-auto max-w-screen-desktop-big ${stylesIn}`}>
         {children}
       </div>
     </Tag>
