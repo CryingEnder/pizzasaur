@@ -8,7 +8,7 @@ import List from "./common/List";
 function Footer(props) {
   return (
     <footer className="w-full text-zinc-100 bg-red-darker z-10">
-      <Heading content="Order now" isButton={true} />
+      <Heading content="Order now" isButton={true} link="menu" />
       <Container
         tag="section"
         stylesIn={

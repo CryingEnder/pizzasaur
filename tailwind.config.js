@@ -12,6 +12,8 @@ module.exports = {
     extend: {
       colors: {
         red: {
+          "less-dark": "#7b525b",
+          "less-dark-2": "#6b434c",
           dark: "#693f48",
           darker: "#50353b",
           darkest: "#432c31",
@@ -19,6 +21,10 @@ module.exports = {
         white: {
           "faded-50": "rgba(255, 255, 255, 0.7)",
           pure: "rgba(255, 255, 255)",
+        },
+        gray: {
+          "more-redish": "#aa8d94",
+          redish: "#ac999e",
         },
       },
       fontFamily: {
@@ -71,5 +77,5 @@ module.exports = {
       ],
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };
