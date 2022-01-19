@@ -3,8 +3,9 @@ import { Decrement, Add, CartAdd } from "./Icons";
 import { showTwoDecimals } from "../../utils/showTwoDecimals";
 import PropTypes from "prop-types";
 
-function Item({ itemData, ...props }) {
-  const { name, ingredients, sizes, prices, photos } = itemData;
+function Item({ itemData, simplified, ...props }) {
+  const { name, ingredients, sizes: itemSizes, price, photos } = itemData;
+  const sizes = !itemSizes ? [] : itemSizes;
 
   const unit = "″";
   const currency = "$";
@@ -79,7 +80,7 @@ function Item({ itemData, ...props }) {
     >
       <section
         className="flex flex-row justify-center items-center drop-shadow-lg
-       mb-4 tablet-small:mb-6 tablet:mb-4 laptop:w-1/2 laptop:mb-0"
+       mb-6 laptop:w-1/2 laptop:mb-0"
       >
         <picture>
           <source
@@ -107,16 +108,28 @@ function Item({ itemData, ...props }) {
       </section>
       <section className="laptop:w-1/2 desktop:flex desktop:flex-col desktop:justify-between desktop:h-full">
         <article>
-          <h4 className="text-center font-text font-bold mb-4 text-4xl tablet-small:mb-8 tablet-small:text-5xl tablet:mb-4 tablet:text-4xl laptop:mb-3 laptop:overflow-hidden laptop:overflow-ellipsis">
+          <h4
+            className="text-center font-text font-bold mb-4 text-4xl tablet-small:mb-8 tablet-small:text-5xl tablet:mb-4
+           tablet:text-4xl laptop:mb-3 laptop:overflow-hidden laptop:overflow-ellipsis"
+          >
             {name}
           </h4>
-          <p className="text-left line-clamp-2 font-text font-normal mb-4 text-lg tablet-small:mb-8 tablet-small:text-xl tablet:mb-4 tablet:text-lg laptop:text-xl laptop:overflow-hidden laptop:overflow-ellipsis desktop-big:line-clamp-3">
+          <p
+            className={`line-clamp-2 text-left font-text font-normal mb-4 text-lg tablet-small:mb-8 tablet-small:text-xl
+             tablet:mb-4 tablet:text-lg laptop:text-xl laptop:overflow-hidden laptop:overflow-ellipsis ${
+               !simplified ? "desktop-big:line-clamp-3" : ""
+             }`}
+          >
             {ingredients.toLowerCase()}
           </p>
         </article>
         <article>
-          <div className="w-full flex flex-row justify-between items-center mb-6 tablet-small:mb-8 tablet:mb-6 laptop:mb-6">
-            <div>
+          <div
+            className={`w-full flex flex-row ${
+              !simplified ? "justify-between" : "justify-center"
+            } items-center mb-6 tablet-small:mb-8 tablet:mb-6 laptop:mb-6`}
+          >
+            <div className={`${!simplified ? "" : "hidden"}`}>
               <p className="text-center font-text font-bold text-lg tablet-small:text-2xl tablet:text-lg">
                 Size:
               </p>
@@ -161,7 +174,7 @@ function Item({ itemData, ...props }) {
           <div className="w-full flex flex-col justify-center items-center">
             <p className="text-center font-text font-semibold mb-2 text-3xl tablet-small:mb-4 tablet-small:text-5xl tablet:mb-2 tablet:text-3xl laptop:text-4xl">
               {currency}
-              {showTwoDecimals(prices[current] * itemsCount)}
+              {showTwoDecimals(price[current] * itemsCount)}
             </p>
             <button
               type="button"
@@ -179,8 +192,13 @@ function Item({ itemData, ...props }) {
   );
 }
 
+Item.defaultProps = {
+  simplified: false,
+};
+
 Item.propTypes = {
   itemData: PropTypes.object.isRequired,
+  simplified: PropTypes.bool,
 };
 
 export default Item;

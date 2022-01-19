@@ -5,7 +5,7 @@ const pizzaArray = [
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, adipisicing, elit, recusandae, tempora",
     sizes: [14, 16, 18],
-    prices: [19.5, 22, 24.5],
+    price: [19.5, 22, 24.5],
     photos: {
       web: "pizza/pizza-1.webp",
       webRetina: "pizza/pizza-1@2x.webp",
@@ -18,7 +18,7 @@ const pizzaArray = [
     name: "Camelotia",
     ingredients: "lorem, ipsum, dolor, sit, amet, consect",
     sizes: [14, 16, 18],
-    prices: [20, 23, 26],
+    price: [20, 23, 26],
     photos: {
       web: "pizza/pizza-2.webp",
       webRetina: "pizza/pizza-2@2x.webp",
@@ -32,7 +32,7 @@ const pizzaArray = [
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, adipisicing, elit, recusandae, tempora, adipisicing, elit, recusandae, tempora",
     sizes: [14],
-    prices: [18],
+    price: [18],
     photos: {
       web: "pizza/pizza-3.webp",
       webRetina: "pizza/pizza-3@2x.webp",
@@ -45,7 +45,7 @@ const pizzaArray = [
     name: "Proa",
     ingredients: "lorem, ipsum, dolor, sit, elit, recusandae",
     sizes: [14, 16, 18],
-    prices: [22.5, 25, 27.5],
+    price: [22.5, 25, 27.5],
     photos: {
       web: "pizza/pizza-4.webp",
       webRetina: "pizza/pizza-4@2x.webp",
@@ -58,7 +58,7 @@ const pizzaArray = [
     name: "Mei",
     ingredients: "lorem, ipsum, dolor, sit, amet",
     sizes: [16, 18],
-    prices: [24, 27],
+    price: [24, 27],
     photos: {
       web: "pizza/pizza-5.webp",
       webRetina: "pizza/pizza-5@2x.webp",
@@ -72,7 +72,7 @@ const pizzaArray = [
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, adipisicing, elit, recusandae, adipisicing, elit, recusandae, tempora",
     sizes: [14, 16, 18],
-    prices: [20, 23, 26],
+    price: [20, 23, 26],
     photos: {
       web: "pizza/pizza-6.webp",
       webRetina: "pizza/pizza-6@2x.webp",
@@ -85,7 +85,7 @@ const pizzaArray = [
     name: "Anzu",
     ingredients: "lorem, ipsum, dolor, sit, amet, consect, adipisicing",
     sizes: [14, 16, 18],
-    prices: [20, 23, 26],
+    price: [20, 23, 26],
     photos: {
       web: "pizza/pizza-7.webp",
       webRetina: "pizza/pizza-7@2x.webp",
@@ -99,7 +99,7 @@ const pizzaArray = [
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, adipisicing, elit, recusandae, tempora",
     sizes: [14, 16],
-    prices: [24.5, 27],
+    price: [24.5, 27],
     photos: {
       web: "pizza/pizza-8.webp",
       webRetina: "pizza/pizza-8@2x.webp",
@@ -112,7 +112,7 @@ const pizzaArray = [
     name: "Rhinorex",
     ingredients: "lorem, ipsum, dolor, sit, adipisicing, elit, recusandae",
     sizes: [14, 16, 18],
-    prices: [20, 23, 26],
+    price: [20, 23, 26],
     photos: {
       web: "pizza/pizza-9.webp",
       webRetina: "pizza/pizza-9@2x.webp",
@@ -125,7 +125,7 @@ const pizzaArray = [
     name: "Spinops",
     ingredients: "lorem, ipsum, dolor, sit, amet, consect, adipisicing",
     sizes: [14, 16, 18],
-    prices: [17, 21, 25],
+    price: [17, 21, 25],
     photos: {
       web: "pizza/pizza-10.webp",
       webRetina: "pizza/pizza-10@2x.webp",
@@ -139,7 +139,7 @@ const pizzaArray = [
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, adipisicing, elit, recusandae, tempora",
     sizes: [14],
-    prices: [21],
+    price: [21],
     photos: {
       web: "pizza/pizza-11.webp",
       webRetina: "pizza/pizza-11@2x.webp",
@@ -153,7 +153,7 @@ const pizzaArray = [
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, adipisicing, elit, recusandae, tempora",
     sizes: [14, 16, 18],
-    prices: [24.5, 27, 29.5],
+    price: [24.5, 27, 29.5],
     photos: {
       web: "pizza/pizza-12.webp",
       webRetina: "pizza/pizza-12@2x.webp",
@@ -167,7 +167,7 @@ const pizzaArray = [
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, adipisicing, elit, recusandae, recusandae, tempora",
     sizes: [14, 16, 18],
-    prices: [19, 24, 29],
+    price: [19, 24, 29],
     photos: {
       web: "pizza/pizza-13.webp",
       webRetina: "pizza/pizza-13@2x.webp",
@@ -181,7 +181,7 @@ const pizzaArray = [
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, adipisicing, elit, recusandae",
     sizes: [14, 16],
-    prices: [20, 23],
+    price: [20, 23],
     photos: {
       web: "pizza/pizza-14.webp",
       webRetina: "pizza/pizza-14@2x.webp",
@@ -195,7 +195,7 @@ const pizzaArray = [
     name: "Oryctodromeus",
     ingredients: "lorem, ipsum, dolor, sit, amet, consect, tempora",
     sizes: [14, 16, 18],
-    prices: [20, 23, 26],
+    price: [20, 23, 26],
     photos: {
       web: "pizza/pizza-15.webp",
       webRetina: "pizza/pizza-15@2x.webp",
@@ -209,7 +209,7 @@ const pizzaArray = [
     name: "Draconyx",
     ingredients: "lorem, ipsum, dolor, sit, amet, recusandae, tempora, amet",
     sizes: [14, 16, 18],
-    prices: [20.5, 23, 25.5],
+    price: [20.5, 23, 25.5],
     photos: {
       web: "pizza/pizza-16.webp",
       webRetina: "pizza/pizza-16@2x.webp",
@@ -223,7 +223,7 @@ const pizzaArray = [
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, adipisicing, elit, tempora",
     sizes: [14, 16],
-    prices: [20, 23],
+    price: [20, 23],
     photos: {
       web: "pizza/pizza-17.webp",
       webRetina: "pizza/pizza-17@2x.webp",
@@ -237,7 +237,7 @@ const pizzaArray = [
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, adipisicing, elit, recusandae, tempora",
     sizes: [14, 16, 18],
-    prices: [21, 27, 33],
+    price: [21, 27, 33],
     photos: {
       web: "pizza/pizza-18.webp",
       webRetina: "pizza/pizza-18@2x.webp",
