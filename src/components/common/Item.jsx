@@ -72,7 +72,7 @@ function Item({ itemData, ...props }) {
   return (
     <article
       {...props}
-      className="flex flex-col laptop:flex-row laptop:justify-center laptop:items-center 
+      className="animate-opacity-slow flex flex-col laptop:flex-row laptop:justify-center laptop:items-center 
       text-zinc-800 bg-gradient-to-t from-gray-more-redish to-gray-redish border-solid border-8
       border-y-red-less-dark-2 border-x-red-less-dark rounded-xl max-w-screen-tablet-small w-full p-6 tablet-small:p-10
        tablet-small:border-[12px] tablet:border-8 tablet:p-6 tablet:max-w-sm tablet:h-full laptop:max-w-3xl laptop:space-x-8"
