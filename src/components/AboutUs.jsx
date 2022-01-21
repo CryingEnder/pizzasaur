@@ -10,7 +10,7 @@ function AboutUs(props) {
       <Container
         tag="section"
         stylesOut={
-          "px-4 pt-12 pb-16 tablet:pt-14 tablet:py-20 laptop:pt-20 laptop:pb-24 desktop:pt-24 desktop:pb-28"
+          "px-4 pt-12 pb-16 tablet:pt-14 tablet:pb-20 laptop:pt-20 laptop:pb-24 desktop:pt-24 desktop:pb-28"
         }
         stylesIn={"flex flex-col space-y-8 laptop:space-y-12"}
       >
