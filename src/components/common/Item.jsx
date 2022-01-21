@@ -24,8 +24,6 @@ function Item({ itemData, simplified, ...props }) {
   );
   const [quantityPlusStyle, setQuantityPlusStyle] = useState(enabledStyle);
 
-  //TODO: to add Joi
-
   function setButtonStyles() {
     if (unit === "″") setUnitFontSize("");
     else setUnitFontSize(fontStyle);
@@ -73,7 +71,7 @@ function Item({ itemData, simplified, ...props }) {
   return (
     <article
       {...props}
-      className="animate-opacity-slow flex flex-col laptop:flex-row laptop:justify-center laptop:items-center 
+      className="flex flex-col laptop:flex-row laptop:justify-center laptop:items-center 
       text-zinc-800 bg-gradient-to-t from-gray-more-redish to-gray-redish border-solid border-8
       border-y-red-less-dark-2 border-x-red-less-dark rounded-xl max-w-screen-tablet-small w-full p-6 tablet-small:p-10
        tablet-small:border-[12px] tablet:border-8 tablet:p-6 tablet:max-w-sm tablet:h-full laptop:max-w-3xl laptop:space-x-8"
@@ -109,7 +107,7 @@ function Item({ itemData, simplified, ...props }) {
       <section className="laptop:w-1/2 desktop:flex desktop:flex-col desktop:justify-between desktop:h-full">
         <article>
           <h4
-            className="text-center font-text font-bold mb-4 text-4xl tablet-small:mb-8 tablet-small:text-5xl tablet:mb-4
+            className="text-center font-ui font-bold mb-4 text-4xl tablet-small:mb-8 tablet-small:text-5xl tablet:mb-4
            tablet:text-4xl laptop:mb-3 laptop:overflow-hidden laptop:overflow-ellipsis"
           >
             {name}
