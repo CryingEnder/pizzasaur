@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Fragment } from "react";
 import Container from "./common/Container";
 import List from "./common/List";
 import { Pizza, Dessert, Drink } from "./common/Icons";
@@ -28,18 +28,24 @@ function MenuList({ ...props }) {
       document.querySelector("#desserts-link"),
       document.querySelector("#drinks-link"),
     ];
-    let linkIndex = 0;
 
     let currentScroll = window.scrollY;
 
     for (let position of scrollPositions) {
-      if (position)
+      if (position) {
+        const navHeight = document.querySelector("#nav-bar").offsetHeight;
         if (
-          position.offsetTop <= currentScroll &&
-          position.offsetTop + position.offsetHeight > currentScroll
+          position.offsetTop - navHeight <= currentScroll &&
+          position.offsetTop - navHeight + position.offsetHeight > currentScroll
         )
-          links[linkIndex++].classList.add("text-yellow-400");
-        else links[linkIndex++].classList.remove("text-yellow-400");
+          links[scrollPositions.indexOf(position)].classList.add(
+            "text-yellow-400"
+          );
+        else
+          links[scrollPositions.indexOf(position)].classList.remove(
+            "text-yellow-400"
+          );
+      }
     }
   }
 
