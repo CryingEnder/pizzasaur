@@ -19,8 +19,7 @@ function Navbar(props) {
   }
 
   function handleClickOutside(e) {
-    if (ref.current && !ref.current.contains(e.target))
-      setVisibility(notVisible);
+    if (ref.current && !ref.current.contains(e.target)) closeMenu();
   }
 
   useEffect(() => {
@@ -34,8 +33,9 @@ function Navbar(props) {
     <Fragment>
       <Container
         tag="nav"
+        id="nav-bar"
         stylesOut={
-          "bg-red-darker sticky top-0 -mb-1 laptop:m-0 z-20 border-solid border-b-4 border-zinc-100"
+          "bg-red-darker sticky top-0 -mb-1 laptop:m-0 z-30 border-solid border-b-4 border-zinc-100"
         }
         stylesIn={
           "flex flex-row justify-between items-center p-1 laptop:px-4 text-zinc-100"
@@ -61,15 +61,16 @@ function Navbar(props) {
               scrollUp: true,
             },
             {
-              content: <CartIcon />,
+              content: (
+                <CartIcon className="fill-current w-7 tablet:w-8 laptop:w-9" />
+              ),
               key: "shoppingcart",
-              specialStyle: "fill-current w-7 tablet:w-8 laptop:w-9",
             },
             {
-              content: <MenuButton />,
+              content: (
+                <MenuButton className="fill-current w-7 tablet:w-8 laptop:w-9 laptop:hidden" />
+              ),
               key: "menubutton",
-              specialStyle:
-                "fill-current w-7 tablet:w-8 laptop:w-9 laptop:hidden",
               showMenu: true,
             },
           ]}
