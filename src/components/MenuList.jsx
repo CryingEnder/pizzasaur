@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Container from "./common/Container";
 import List from "./common/List";
+import { Pizza, Dessert, Drink } from "./common/Icons";
 
 function MenuList({ ...props }) {
   const ref = useRef(null);
@@ -66,21 +67,36 @@ function MenuList({ ...props }) {
         stylesOut={`bg-red-darker border-solid max-h-[50rem] border-b-4 border-zinc-100`}
       >
         <List
-          className="flex flex-row justify-center items-center space-x-5 p-2 text-zinc-100"
+          className="flex flex-row justify-center items-center space-x-4 p-2 text-zinc-100"
           itemsStyle="transition-colors cursor-pointer"
           items={[
             {
-              content: "Pizza",
+              content: (
+                <div className="flex flex-row items-center justify-center">
+                  <Pizza className="inline mr-1 fill-current w-7 desktop:w-9" />
+                  <span>Pizza</span>
+                </div>
+              ),
               key: "pizza-link",
               link: "#pizza-section",
             },
             {
-              content: "Desserts",
+              content: (
+                <div className="flex flex-row items-center justify-center">
+                  <Dessert className="inline fill-current w-7 desktop:w-9" />
+                  <span>Desserts</span>
+                </div>
+              ),
               key: "desserts-link",
               link: "#desserts-section",
             },
             {
-              content: "Drinks",
+              content: (
+                <div className="flex flex-row items-center justify-center">
+                  <Drink className="inline fill-current w-7 desktop:w-9" />
+                  <span>Drinks</span>
+                </div>
+              ),
               key: "drinks-link",
               link: "#drinks-section",
             },
