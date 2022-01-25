@@ -93,7 +93,7 @@
   }
 
   nav {
-    @apply text-2xl desktop:text-3xl font-ui font-medium;
+    @apply text-2xl desktop:text-3xl font-ui font-semibold;
   }
 
   h1 {

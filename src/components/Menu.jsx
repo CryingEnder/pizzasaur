@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Item from "./common/Item";
-import MenuList from "./MenuList";
 import MenuSection from "./MenuSection";
 import pizzaArray from "./../services/fakePizzaService";
 import dessertsArray from "./../services/fakeDessertsService";
@@ -23,7 +22,6 @@ function Menu(props) {
 
   return (
     <main className="bg-gradient-to-b from-red-darker to-red-dark pb-16 tablet:pb-20 laptop:pb-24 desktop:pb-28">
-      <MenuList />
       <MenuSection id="pizza-section" content="Pizza">
         {pizzas.map((pizza) => (
           <Item itemData={pizza} key={pizza._id} />

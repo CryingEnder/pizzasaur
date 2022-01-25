@@ -1,18 +1,13 @@
-import React, { useState, useEffect, useRef, Fragment } from "react";
-import Container from "./common/Container";
+import React, { useState, useEffect } from "react";
 import List from "./common/List";
+import PropTypes from "prop-types";
 import { Pizza, Dessert, Drink } from "./common/Icons";
 
-function MenuList({ ...props }) {
-  const ref = useRef(null);
-  const onePixelInRem = 0.0625;
+function MenuList({ styles, disabledCurrentLinks, ...props }) {
   const [navbarHeight, setNavbarHeight] = useState(window.scrollY);
 
-  function setTopOfMenuList() {
+  function setHeight() {
     const navHeight = document.querySelector("#nav-bar").offsetHeight;
-
-    if (ref.current)
-      ref.current.style.top = `${navbarHeight * onePixelInRem}rem`;
     setNavbarHeight(navHeight);
   }
 
@@ -33,10 +28,10 @@ function MenuList({ ...props }) {
 
     for (let position of scrollPositions) {
       if (position) {
-        const navHeight = document.querySelector("#nav-bar").offsetHeight;
+        // const navHeight = document.querySelector("#nav-bar").offsetHeight;
         if (
-          position.offsetTop - navHeight <= currentScroll &&
-          position.offsetTop - navHeight + position.offsetHeight > currentScroll
+          position.offsetTop <= currentScroll &&
+          position.offsetTop + position.offsetHeight > currentScroll
         )
           links[scrollPositions.indexOf(position)].classList.add(
             "text-yellow-400"
@@ -54,63 +49,73 @@ function MenuList({ ...props }) {
   }
 
   useEffect(() => {
-    setTopOfMenuList();
+    if (disabledCurrentLinks === false) {
+      setHeight();
 
-    window.addEventListener("resize", setTopOfMenuList);
-    window.addEventListener("scroll", handleScroll);
+      window.addEventListener("resize", setHeight);
+      window.addEventListener("scroll", handleScroll);
+    }
 
     return () => {
-      window.removeEventListener("resize", setTopOfMenuList);
-      window.removeEventListener("scroll", handleScroll);
-      setNavbarHeight(0);
+      if (disabledCurrentLinks === false) {
+        window.removeEventListener("resize", setHeight);
+        window.removeEventListener("scroll", handleScroll);
+        setNavbarHeight(0);
+      }
     };
   }, [navbarHeight]);
 
   return (
-    <nav ref={ref} className={`sticky z-20 w-full overflow-hidden`}>
-      <Container
-        tag="div"
-        stylesOut={`bg-red-darker border-solid max-h-[50rem] border-b-4 border-zinc-100`}
-      >
-        <List
-          className="flex flex-row justify-center items-center space-x-4 p-2 text-zinc-100"
-          itemsStyle="transition-colors cursor-pointer"
-          items={[
-            {
-              content: (
-                <div className="flex flex-row items-center justify-center">
-                  <Pizza className="inline mr-1 fill-current w-7 desktop:w-9" />
-                  <span>Pizza</span>
-                </div>
-              ),
-              key: "pizza-link",
-              link: "#pizza-section",
-            },
-            {
-              content: (
-                <div className="flex flex-row items-center justify-center">
-                  <Dessert className="inline fill-current w-7 desktop:w-9" />
-                  <span>Desserts</span>
-                </div>
-              ),
-              key: "desserts-link",
-              link: "#desserts-section",
-            },
-            {
-              content: (
-                <div className="flex flex-row items-center justify-center">
-                  <Drink className="inline fill-current w-7 desktop:w-9" />
-                  <span>Drinks</span>
-                </div>
-              ),
-              key: "drinks-link",
-              link: "#drinks-section",
-            },
-          ]}
-        />
-      </Container>
-    </nav>
+    <List
+      {...props}
+      className={styles}
+      itemsStyle={`transition-colors cursor-pointer ${
+        disabledCurrentLinks && "hover:text-zinc-300"
+      }`}
+      items={[
+        {
+          content: (
+            <div className="flex flex-row items-center justify-center">
+              <Pizza className="inline mr-1 fill-current w-7 desktop:w-9" />
+              <span>Pizza</span>
+            </div>
+          ),
+          key: "pizza-link",
+          link: "#pizza-section",
+        },
+        {
+          content: (
+            <div className="flex flex-row items-center justify-center">
+              <Dessert className="inline mr-1 fill-current w-7 desktop:w-9" />
+              <span>Desserts</span>
+            </div>
+          ),
+          key: "desserts-link",
+          link: "#desserts-section",
+        },
+        {
+          content: (
+            <div className="flex flex-row items-center justify-center">
+              <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
+              <span>Drinks</span>
+            </div>
+          ),
+          key: "drinks-link",
+          link: "#drinks-section",
+        },
+      ]}
+    />
   );
 }
+
+MenuList.defaultProps = {
+  styles: "",
+  disabledCurrentLinks: false,
+};
+
+MenuList.propTypes = {
+  styles: PropTypes.string,
+  disabledCurrentLinks: PropTypes.bool,
+};
 
 export default MenuList;
