@@ -18,7 +18,7 @@ function HeroPicture(props) {
         srcSet={`${heroImgSmall} 200w, ${heroImgMedium} 640w, ${heroImgLarge} 1024w, ${heroImgLarger} 1280w`}
       />
       <source
-        type="image/jpg"
+        type="image/png"
         srcSet={`${heroImgSmallOld} 200w, ${heroImgMediumOld} 640w, ${heroImgLargeOld} 1024w, ${heroImgLargerOld} 1280w`}
       />
       <img
