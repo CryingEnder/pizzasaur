@@ -19,27 +19,25 @@ function List({ items, itemsStyle, children, showMenu, closeMenu, ...props }) {
       {items.map(
         (i) =>
           i && (
-            <li id={i.key} key={i.key}>
+            <li
+              id={i.key}
+              key={i.key}
+              className={
+                i.specialStyle ? `${i.specialStyle} ${itemsStyle}` : itemsStyle
+              }
+            >
               {i.link && i.link.search("#") === 0 ? (
                 <a
-                  className={
-                    i.specialStyle
-                      ? `${i.specialStyle} ${itemsStyle}`
-                      : itemsStyle
-                  }
                   onClick={() => triggerAction(i)}
+                  className="inline-block"
                   href={i.link ? i.link : (e) => e.preventDefault()}
                 >
                   {i.content}
                 </a>
               ) : (
                 <Link
-                  className={
-                    i.specialStyle
-                      ? `${i.specialStyle} ${itemsStyle}`
-                      : itemsStyle
-                  }
                   onClick={() => triggerAction(i)}
+                  className="inline-block"
                   to={i.link ? i.link : (e) => e.preventDefault()}
                 >
                   {i.content}

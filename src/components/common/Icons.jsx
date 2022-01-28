@@ -8,6 +8,22 @@ function AngleDown({ ...props }) {
   );
 }
 
+function ArrowLeft({ ...props }) {
+  return (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M10.88,17.715a1,1,0,0,0,0-1.415L7.588,13.007,18,13a1,1,0,0,0,0-2l-10.414.007L10.88,7.715A1,1,0,0,0,9.466,6.3L5.88,9.886a3,3,0,0,0,0,4.243l3.586,3.586A1,1,0,0,0,10.88,17.715Z" />
+    </svg>
+  );
+}
+
+function ArrowRight({ ...props }) {
+  return (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M13.121,6.293a1,1,0,0,0,0,1.414L16.413,11,6,11.007a1,1,0,1,0,0,2L16.414,13l-3.293,3.293a1,1,0,1,0,1.414,1.414l3.586-3.585a3,3,0,0,0,0-4.243L14.535,6.293A1,1,0,0,0,13.121,6.293Z" />
+    </svg>
+  );
+}
+
 function AngleSmallLeft({ ...props }) {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -76,6 +92,7 @@ function Facebook({ ...props }) {
     </svg>
   );
 }
+
 function Instagram({ ...props }) {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -218,6 +235,8 @@ function Add({ ...props }) {
 
 export {
   AngleDown,
+  ArrowLeft,
+  ArrowRight,
   AngleSmallLeft,
   AngleSmallRight,
   CartIcon,

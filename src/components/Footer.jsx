@@ -37,19 +37,22 @@ function Footer(props) {
             className="flex flex-row justify-center laptop:justify-end space-x-2 pb-3"
             items={[
               {
-                content: <Facebook />,
+                content: (
+                  <Facebook className="w-10 tablet:w-12 desktop:w-14 fill-current" />
+                ),
                 key: "facebook",
-                specialStyle: "w-10 tablet:w-12 desktop:w-14 fill-current",
               },
               {
-                content: <Instagram />,
+                content: (
+                  <Instagram className="w-10 tablet:w-12 desktop:w-14 fill-current" />
+                ),
                 key: "instagram",
-                specialStyle: "w-10 tablet:w-12 desktop:w-14 fill-current",
               },
               {
-                content: <Twitter />,
+                content: (
+                  <Twitter className="w-10 tablet:w-12 desktop:w-14 fill-current" />
+                ),
                 key: "twitter",
-                specialStyle: "w-10 tablet:w-12 desktop:w-14 fill-current",
               },
             ]}
           />
