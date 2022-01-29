@@ -37,6 +37,31 @@ function Menu(props) {
           <Item simplified={true} itemData={drink} key={drink._id} />
         ))}
       </MenuSection>
+      <MenuSection id="test1-section" content="Test1">
+        {drinks.map((drink) => (
+          <Item simplified={true} itemData={drink} key={drink._id} />
+        ))}
+      </MenuSection>
+      <MenuSection id="test2-section" content="Test2">
+        {drinks.map((drink) => (
+          <Item simplified={true} itemData={drink} key={drink._id} />
+        ))}
+      </MenuSection>
+      <MenuSection id="test3-section" content="Test3">
+        {drinks.map((drink) => (
+          <Item simplified={true} itemData={drink} key={drink._id} />
+        ))}
+      </MenuSection>
+      <MenuSection id="test4-section" content="Test4">
+        {drinks.map((drink) => (
+          <Item simplified={true} itemData={drink} key={drink._id} />
+        ))}
+      </MenuSection>
+      <MenuSection id="test5-section" content="Test5">
+        {drinks.map((drink) => (
+          <Item simplified={true} itemData={drink} key={drink._id} />
+        ))}
+      </MenuSection>
     </main>
   );
 }

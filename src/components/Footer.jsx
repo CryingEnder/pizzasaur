@@ -17,7 +17,7 @@ function Footer(props) {
       >
         <div className="flex flex-col text-center laptop:text-right space-y-2 laptop:order-1">
           <List
-            itemsStyle=""
+            linksStyle=""
             className="laptop:order-1"
             items={[
               { content: "1111 Example Street", key: "street1" },

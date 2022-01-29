@@ -3,7 +3,7 @@ import List from "./common/List";
 import PropTypes from "prop-types";
 import { Pizza, Dessert, Drink, ArrowLeft, ArrowRight } from "./common/Icons";
 
-function MenuList({ listStyle, itemsStyle, disabledCurrentLinks, ...props }) {
+function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
   const categories = [
     {
       content: (
@@ -87,94 +87,92 @@ function MenuList({ listStyle, itemsStyle, disabledCurrentLinks, ...props }) {
     },
   ];
 
+  const maximumShownCategories = 6; //If this value is changed, the four values below must also be changed
+  const eachCategoryWidthLaptop = "laptop:w-36"; //w-36 = 9rem
+  const maxShownCategoriesContainerWidthLaptop = "laptop:max-w-[54rem]";
+  const eachCategoryWidthDesktop = "desktop:w-44"; //w-44 = 11rem
+  const maxShownCategoriesContainerWidthDesktop = "desktop:max-w-[66rem]";
+  // maxShownCategoriesContainerWidth = maximumShownCategories * eachCategoryWidth (in rem)
+
   const disabled = "text-zinc-500 cursor-default";
-  const enabled = "hover:text-zinc-300 cursor-pointer";
-  const maximumShownCategories = 6;
+  const enabled =
+    "hover:text-zinc-300 cursor-pointer hover:scale-110 active:scale-100";
   const tooManyCategories = categories.length > maximumShownCategories;
+  const maxIndex = categories.length - maximumShownCategories;
+  const [currentIndex, setCurrentIndex] = useState(-1);
   const [navbarHeight, setNavbarHeight] = useState(window.scrollY);
-  const [shownCategories, setShownCategories] = useState(categories);
-  const [startIndex, setStartindex] = useState(0);
-  const [endIndex, setEndIndex] = useState(maximumShownCategories);
   const [leftArrowStyle, setLeftArrowStyle] = useState(disabled);
   const [rightArrowStyle, setRightArrowStyle] = useState(enabled);
 
   function showCurrentLink() {
-    const scrollPositions = [
-      document.querySelector("#pizza-section"),
-      document.querySelector("#desserts-section"),
-      document.querySelector("#drinks-section"),
-    ];
+    let links = [];
+    let linksIndex = 0;
+    for (let category of categories)
+      links[linksIndex++] = document.querySelector(category.link);
 
-    const links = [
-      document.querySelector("#pizza-link"),
-      document.querySelector("#desserts-link"),
-      document.querySelector("#drinks-link"),
-    ];
-
-    // function showLink(activeLink) {
-    //   for (let category of shownCategories)
-    //     if (category.key === activeLink.id) return;
-
-    //   setStartindex(0);
-    //   setEndIndex(maximumShownCategories);
-    //   while (true) {
-    //     handleRight();
-    //     for (let category of shownCategories)
-    //       if (category.key === activeLink.id) return;
-    //   }
-    // }
+    let keys = [];
+    let keysIndex = 0;
+    for (let category of categories)
+      keys[keysIndex++] = document.querySelector(`.${category.key}`);
 
     let currentScroll = window.scrollY;
 
-    for (let position of scrollPositions)
-      if (position)
+    function slide(categoryIndex) {
+      if (currentIndex >= categoryIndex) arrangeCategories(categoryIndex);
+      else if (categoryIndex >= maximumShownCategories + currentIndex)
+        arrangeCategories(currentIndex + 1);
+    }
+
+    for (let position of links)
+      if (position) {
+        const category = keys[links.indexOf(position)];
         if (
           position.offsetTop <= currentScroll &&
           position.offsetTop + position.offsetHeight > currentScroll
         ) {
-          links[scrollPositions.indexOf(position)].classList.add(
-            "text-yellow-400"
-          );
-          // showLink(links[scrollPositions.indexOf(position)]);
-        } else
-          links[scrollPositions.indexOf(position)].classList.remove(
-            "text-yellow-400"
-          );
-  }
-
-  function setArrowStyles(startIndex, endIndex) {
-    if (startIndex === 0) setLeftArrowStyle(disabled);
-    else setLeftArrowStyle(enabled);
-
-    if (endIndex === categories.length) setRightArrowStyle(disabled);
-    else setRightArrowStyle(enabled);
-  }
-
-  function arrangeCategories(startIndex, endIndex) {
-    setShownCategories(categories.slice(startIndex, endIndex));
-  }
-
-  function handleLeft() {
-    if (startIndex - 1 >= 0) {
-      setStartindex(startIndex - 1);
-      setEndIndex(endIndex - 1);
-      arrangeCategories(startIndex - 1, endIndex - 1);
-      setArrowStyles(startIndex - 1, endIndex - 1);
-    }
-  }
-
-  function handleRight() {
-    if (endIndex + 1 <= categories.length) {
-      setStartindex(startIndex + 1);
-      setEndIndex(endIndex + 1);
-      arrangeCategories(startIndex + 1, endIndex + 1);
-      setArrowStyles(startIndex + 1, endIndex + 1);
-    }
+          category.classList.add("text-yellow-400");
+          slide(keys.indexOf(category));
+        } else category.classList.remove("text-yellow-400");
+      }
   }
 
   function setHeight() {
-    const navHeight = document.querySelector("#nav-bar").offsetHeight;
+    const navHeight = document.querySelector(".nav-bar").offsetHeight;
     setNavbarHeight(navHeight);
+  }
+
+  function arrangeCategories(index = currentIndex) {
+    const oneRemInPx = 16;
+    const categoryWidth = document.querySelector(
+      `.${categories[0].key}`
+    ).clientWidth;
+    const categoryWidthInRem = categoryWidth / oneRemInPx;
+    document.querySelector(".categories").style.left = `-${
+      categoryWidthInRem * index
+    }rem`;
+
+    setCurrentIndex(index);
+  }
+
+  function setArrowStyles() {
+    if (currentIndex === 0) setLeftArrowStyle(disabled);
+    else setLeftArrowStyle(enabled);
+
+    if (currentIndex === maxIndex) setRightArrowStyle(disabled);
+    else setRightArrowStyle(enabled);
+  }
+
+  function handleLeft() {
+    if (currentIndex > 0) arrangeCategories(currentIndex - 1);
+  }
+
+  function handleRight() {
+    if (currentIndex < maxIndex) arrangeCategories(currentIndex + 1);
+  }
+
+  function handleResize() {
+    setHeight();
+    arrangeCategories();
   }
 
   function handleScroll() {
@@ -182,61 +180,68 @@ function MenuList({ listStyle, itemsStyle, disabledCurrentLinks, ...props }) {
   }
 
   useEffect(() => {
-    if (shownCategories.length > maximumShownCategories)
-      arrangeCategories(startIndex, endIndex);
-
-    if (disabledCurrentLinks === false) {
+    if (!disabledSlider) {
+      if (currentIndex < 0) arrangeCategories(currentIndex + 1);
       setHeight();
+      setArrowStyles();
 
-      window.addEventListener("resize", setHeight);
+      window.addEventListener("resize", handleResize);
       window.addEventListener("scroll", handleScroll);
     }
 
     return () => {
-      if (disabledCurrentLinks === false) {
-        window.removeEventListener("resize", setHeight);
+      if (!disabledSlider) {
+        window.removeEventListener("resize", handleResize);
         window.removeEventListener("scroll", handleScroll);
         setNavbarHeight(0);
       }
     };
-  }, [navbarHeight, shownCategories]);
+  }, [navbarHeight, currentIndex]);
 
   return (
-    <div className="flex flex-row justify-center items-center">
+    <section className="flex flex-row justify-center items-center w-full">
       {tooManyCategories && (
         <ArrowLeft
           onClick={handleLeft}
-          className={`hidden transition-colors laptop:block w-12 desktop:w-14 fill-current select-none ${leftArrowStyle}`}
+          className={`hidden transition-all laptop:block w-12 desktop:w-14 fill-current select-none ${leftArrowStyle}`}
         />
       )}
-      <List
-        {...props}
-        className={`${listStyle}`}
-        itemsStyle={`transition-colors cursor-pointer ${itemsStyle} ${
-          disabledCurrentLinks && "hover:text-zinc-300"
-        }`}
-        items={shownCategories}
-      />
+      <div
+        className={`flex overflow-hidden w-full laptop:w-auto ${maxShownCategoriesContainerWidthLaptop} ${maxShownCategoriesContainerWidthDesktop}`}
+      >
+        <List
+          {...props}
+          useClassIdentifiers={!disabledSlider}
+          className={`${listStyle} transition-all relative`}
+          itemsStyle={`${eachCategoryWidthLaptop} ${eachCategoryWidthDesktop} ${itemsStyle}`}
+          linksStyle={
+            disabledSlider
+              ? "hover:text-zinc-300 transition-colors cursor-pointer"
+              : ""
+          }
+          items={categories}
+        />
+      </div>
       {tooManyCategories && (
         <ArrowRight
           onClick={handleRight}
-          className={`hidden transition-colors w-12 laptop:block desktop:w-14 fill-current select-none ${rightArrowStyle}`}
+          className={`hidden transition-all laptop:block w-12 desktop:w-14 fill-current select-none ${rightArrowStyle}`}
         />
       )}
-    </div>
+    </section>
   );
 }
 
 MenuList.defaultProps = {
   listStyle: "",
   itemsStyle: "",
-  disabledCurrentLinks: false,
+  disabledSlider: false,
 };
 
 MenuList.propTypes = {
   listStyle: PropTypes.string,
   itemsStyle: PropTypes.string,
-  disabledCurrentLinks: PropTypes.bool,
+  disabledSlider: PropTypes.bool,
 };
 
 export default MenuList;

@@ -40,9 +40,8 @@ function Navbar(props) {
     <Fragment>
       <Container
         tag="nav"
-        id="nav-bar"
         stylesOut={
-          "bg-red-darker sticky top-0 -mb-1 laptop:m-0 z-30 border-solid border-b-4 border-zinc-100 transition-all"
+          "bg-red-darker sticky top-0 -mb-1 laptop:m-0 z-30 border-solid border-b-4 border-zinc-100 transition-all nav-bar"
         }
         stylesIn={"flex flex-col p-1 laptop:px-4 text-zinc-100"}
       >
@@ -85,8 +84,8 @@ function Navbar(props) {
         </div>
         {currentLocation === "/menu" && (
           <MenuList
-            listStyle="hidden laptop:flex flex flex-row justify-center items-center text-zinc-100"
-            itemsStyle="w-36 desktop:w-44 flex flex-row justify-center items-center"
+            listStyle="hidden laptop:flex flex flex-row justify-center items-center py-2 categories"
+            itemsStyle="flex flex-row justify-center items-center"
           />
         )}
       </Container>
@@ -117,12 +116,12 @@ function Navbar(props) {
           >
             {currentLocation === "/menu" && (
               <Fragment>
-                <div className="border-2 rounded-full border-solid border-zinc-100 w-full"></div>
+                <div className="border-2 border-solid border-zinc-100 rounded-full w-full"></div>
                 <MenuList
                   closeMenu={closeMenu}
-                  disabledCurrentLinks={true}
                   listStyle="flex flex-col justify-center items-start space-y-4"
                   itemsStyle="flex flex-col justify-center items-center"
+                  disabledSlider={true}
                 />
               </Fragment>
             )}

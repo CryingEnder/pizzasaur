@@ -2,7 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function List({ items, itemsStyle, children, showMenu, closeMenu, ...props }) {
+function List({
+  items,
+  itemsStyle,
+  linksStyle,
+  children,
+  showMenu,
+  closeMenu,
+  useClassIdentifiers,
+  ...props
+}) {
   function scrollUp() {
     window.scrollTo(0, 0);
   }
@@ -20,16 +29,19 @@ function List({ items, itemsStyle, children, showMenu, closeMenu, ...props }) {
         (i) =>
           i && (
             <li
-              id={i.key}
               key={i.key}
               className={
-                i.specialStyle ? `${i.specialStyle} ${itemsStyle}` : itemsStyle
+                i.specialStyle
+                  ? `${i.specialStyle} ${itemsStyle} ${
+                      useClassIdentifiers ? i.key : ""
+                    }`
+                  : `${itemsStyle} ${useClassIdentifiers ? i.key : ""}`
               }
             >
               {i.link && i.link.search("#") === 0 ? (
                 <a
                   onClick={() => triggerAction(i)}
-                  className="inline-block"
+                  className={`inline-block ${linksStyle}`}
                   href={i.link ? i.link : (e) => e.preventDefault()}
                 >
                   {i.content}
@@ -37,7 +49,7 @@ function List({ items, itemsStyle, children, showMenu, closeMenu, ...props }) {
               ) : (
                 <Link
                   onClick={() => triggerAction(i)}
-                  className="inline-block"
+                  className={`inline-block ${linksStyle}`}
                   to={i.link ? i.link : (e) => e.preventDefault()}
                 >
                   {i.content}
@@ -52,14 +64,18 @@ function List({ items, itemsStyle, children, showMenu, closeMenu, ...props }) {
 }
 
 List.defaultProps = {
-  itemsStyle: "transition-colors hover:text-zinc-300 cursor-pointer",
+  itemsStyle: "",
+  linksStyle: "hover:text-zinc-300 transition-colors cursor-pointer",
+  useClassIdentifiers: false,
 };
 
 List.propTypes = {
   items: PropTypes.array.isRequired,
   itemsStyle: PropTypes.string,
+  linksStyle: PropTypes.string,
   showMenu: PropTypes.func,
   closeMenu: PropTypes.func,
+  useClassIdentifiers: PropTypes.bool,
 };
 
 export default List;
