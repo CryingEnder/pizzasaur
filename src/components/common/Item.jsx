@@ -7,6 +7,17 @@ function Item({ itemData, simplified, ...props }) {
   const { name, ingredients, sizes: itemSizes, price, photos } = itemData;
   const sizes = !itemSizes ? [] : itemSizes;
 
+  const itHasPhotoExtension =
+    photos.oldRetina.match(/\.[0-9a-z]+$/i) ||
+    photos.web.match(/\.[0-9a-z]+$/i);
+  const extension = itHasPhotoExtension
+    ? itHasPhotoExtension[0].slice(1)
+    : null;
+  if (!extension)
+    throw new Error(
+      `${photos.oldRetina} or ${photos.web} does not have an extension!`
+    );
+
   const unit = "″";
   const currency = "$";
   const fontStyle = "font-bold text-sm tablet-small:text-base";
@@ -77,10 +88,10 @@ function Item({ itemData, simplified, ...props }) {
        tablet-small:border-[12px] tablet:border-8 tablet:p-6 tablet:max-w-sm tablet:h-full laptop:max-w-3xl laptop:space-x-8"
     >
       <section
-        className="flex flex-row justify-center items-center drop-shadow-lg
+        className="flex flex-row justify-center items-center drop-shadow-md
        mb-6 laptop:w-1/2 laptop:mb-0"
       >
-        <picture>
+        <picture className="aspect-w-1 aspect-h-1 w-full">
           <source
             type="image/webp"
             srcSet={`src/css/images/${photos.web} 1x, src/css/images/${
@@ -88,7 +99,7 @@ function Item({ itemData, simplified, ...props }) {
             } 2x`}
           />
           <source
-            type="image/jpg"
+            type={`image/${extension}`}
             srcSet={`src/css/images/${
               photos.old ? photos.old : photos.web
             } 1x, src/css/images/${
@@ -99,7 +110,7 @@ function Item({ itemData, simplified, ...props }) {
             src={`src/css/images/${
               photos.oldRetina ? photos.oldRetina : photos.web
             }`}
-            className="w-full object-cover aspect-square"
+            className="object-cover"
             alt={`${name} pizza photo`}
           />
         </picture>
@@ -108,13 +119,13 @@ function Item({ itemData, simplified, ...props }) {
         <article>
           <h4
             className="text-center font-ui font-bold mb-4 text-4xl tablet-small:mb-8 tablet-small:text-5xl tablet:mb-4
-           tablet:text-4xl laptop:mb-3 laptop:overflow-hidden laptop:overflow-ellipsis"
+           tablet:text-4xl laptop:mb-3 overflow-hidden overflow-ellipsis"
           >
             {name}
           </h4>
           <p
             className={`line-clamp-2 text-left font-text font-normal mb-4 text-lg tablet-small:mb-8 tablet-small:text-xl
-             tablet:mb-4 tablet:text-lg laptop:text-xl laptop:overflow-hidden laptop:overflow-ellipsis ${
+             tablet:mb-4 tablet:text-lg laptop:text-xl overflow-hidden overflow-ellipsis ${
                !simplified ? "desktop-big:line-clamp-3" : ""
              }`}
           >

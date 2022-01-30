@@ -2,6 +2,11 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
+    aspectRatio: {
+      1: "1",
+      0.77: "0.77",
+      0.6: "0.6",
+    },
     screens: {
       "tablet-small": "500px",
       tablet: "640px",
@@ -77,5 +82,8 @@ module.exports = {
       ],
     },
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };

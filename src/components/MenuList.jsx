@@ -35,56 +35,56 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
       key: "drinks-link",
       link: "#drinks-section",
     },
-    {
-      content: (
-        <div className="flex flex-row items-center justify-center">
-          <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
-          <span>Test1</span>
-        </div>
-      ),
-      key: "test1-link",
-      link: "#test1-section",
-    },
-    {
-      content: (
-        <div className="flex flex-row items-center justify-center">
-          <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
-          <span>Test2</span>
-        </div>
-      ),
-      key: "test2-link",
-      link: "#test2-section",
-    },
-    {
-      content: (
-        <div className="flex flex-row items-center justify-center">
-          <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
-          <span>Test3</span>
-        </div>
-      ),
-      key: "test3-link",
-      link: "#test3-section",
-    },
-    {
-      content: (
-        <div className="flex flex-row items-center justify-center">
-          <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
-          <span>Test4</span>
-        </div>
-      ),
-      key: "test4-link",
-      link: "#test4-section",
-    },
-    {
-      content: (
-        <div className="flex flex-row items-center justify-center">
-          <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
-          <span>Test5</span>
-        </div>
-      ),
-      key: "test5-link",
-      link: "#test5-section",
-    },
+    // {
+    //   content: (
+    //     <div className="flex flex-row items-center justify-center">
+    //       <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
+    //       <span>Test1</span>
+    //     </div>
+    //   ),
+    //   key: "test1-link",
+    //   link: "#test1-section",
+    // },
+    // {
+    //   content: (
+    //     <div className="flex flex-row items-center justify-center">
+    //       <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
+    //       <span>Test2</span>
+    //     </div>
+    //   ),
+    //   key: "test2-link",
+    //   link: "#test2-section",
+    // },
+    // {
+    //   content: (
+    //     <div className="flex flex-row items-center justify-center">
+    //       <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
+    //       <span>Test3</span>
+    //     </div>
+    //   ),
+    //   key: "test3-link",
+    //   link: "#test3-section",
+    // },
+    // {
+    //   content: (
+    //     <div className="flex flex-row items-center justify-center">
+    //       <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
+    //       <span>Test4</span>
+    //     </div>
+    //   ),
+    //   key: "test4-link",
+    //   link: "#test4-section",
+    // },
+    // {
+    //   content: (
+    //     <div className="flex flex-row items-center justify-center">
+    //       <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
+    //       <span>Test5</span>
+    //     </div>
+    //   ),
+    //   key: "test5-link",
+    //   link: "#test5-section",
+    // },
   ];
 
   const maximumShownCategories = 6; //If this value is changed, the four values below must also be changed

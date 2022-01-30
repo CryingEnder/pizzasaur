@@ -37,7 +37,7 @@ function Menu(props) {
           <Item simplified={true} itemData={drink} key={drink._id} />
         ))}
       </MenuSection>
-      <MenuSection id="test1-section" content="Test1">
+      {/* <MenuSection id="test1-section" content="Test1">
         {drinks.map((drink) => (
           <Item simplified={true} itemData={drink} key={drink._id} />
         ))}
@@ -61,7 +61,7 @@ function Menu(props) {
         {drinks.map((drink) => (
           <Item simplified={true} itemData={drink} key={drink._id} />
         ))}
-      </MenuSection>
+      </MenuSection> */}
     </main>
   );
 }
