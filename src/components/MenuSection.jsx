@@ -3,11 +3,11 @@ import Container from "./common/Container";
 import Heading from "./common/Heading";
 import PropTypes from "prop-types";
 
-function MenuSection({ content, id, children, ...props }) {
+function MenuSection({ header, id, children, ...props }) {
   return (
     <section id={id} {...props}>
       <Heading
-        content={content}
+        content={header}
         styles="pb-12 pt-16 tablet:pb-14 tablet:pt-20 laptop:pb-20 laptop:pt-24 desktop:pb-24 desktop:pt-28"
       />
       <Container
@@ -23,7 +23,7 @@ function MenuSection({ content, id, children, ...props }) {
 }
 
 MenuSection.propTypes = {
-  content: PropTypes.string.isRequired,
+  header: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };
 

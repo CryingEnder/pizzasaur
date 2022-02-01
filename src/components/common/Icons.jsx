@@ -233,7 +233,25 @@ function Add({ ...props }) {
   );
 }
 
+function MagnifyingGlass({ ...props }) {
+  return (
+    <svg
+      {...props}
+      version="1.1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M23.6,21.4l-4.7-4.7c3.5-4.7,2.5-11.3-2.1-14.8S5.5-0.5,2,4.1s-2.5,11.3,2.1,14.8c3.7,2.8,8.9,2.8,12.6,0l4.7,4.7
+	c0.6,0.6,1.5,0.6,2.1,0S24.1,22,23.6,21.4L23.6,21.4z M10.5,18C6.4,18,3,14.6,3,10.5S6.4,3,10.5,3S18,6.4,18,10.5
+	C18,14.6,14.6,18,10.5,18z"
+      />
+    </svg>
+  );
+}
+
 export {
+  MagnifyingGlass,
   AngleDown,
   ArrowLeft,
   ArrowRight,
