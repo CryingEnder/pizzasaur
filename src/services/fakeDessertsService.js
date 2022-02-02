@@ -4,7 +4,7 @@ const dessertsArray = [
     name: "Cheesecake",
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, tempora, adipisicing, elit",
-    price: [15],
+    price: [13],
     photos: {
       web: "desserts/dessert-2.webp",
       webRetina: "desserts/dessert-2@2x.webp",
@@ -16,7 +16,7 @@ const dessertsArray = [
     _id: 24,
     name: "Pancakes",
     ingredients: "lorem, ipsum, dolor, sit, amet, consect, elit",
-    price: [15],
+    price: [16],
     photos: {
       web: "desserts/dessert-3.webp",
       webRetina: "desserts/dessert-3@2x.webp",
@@ -29,7 +29,7 @@ const dessertsArray = [
     name: "Apple pie",
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, tempora, adipisicing",
-    price: [15],
+    price: [12],
     photos: {
       web: "desserts/dessert-4.webp",
       webRetina: "desserts/dessert-4@2x.webp",
@@ -41,7 +41,7 @@ const dessertsArray = [
     _id: 26,
     name: "Lava cake",
     ingredients: "lorem, ipsum, dolor, sit, amet, consect, elit",
-    price: [15],
+    price: [17],
     photos: {
       web: "desserts/dessert-1.webp",
       webRetina: "desserts/dessert-1@2x.webp",
@@ -54,7 +54,7 @@ const dessertsArray = [
     name: "Cherry cake",
     ingredients:
       "lorem, ipsum, dolor, sit, amet, consect, tempora, adipisicing, elit",
-    price: [15],
+    price: [18],
     photos: {
       web: "desserts/dessert-5.webp",
       webRetina: "desserts/dessert-5@2x.webp",
@@ -66,7 +66,7 @@ const dessertsArray = [
     _id: 28,
     name: "Vanilla ice cream",
     ingredients: "lorem, ipsum, dolor, sit, amet, consect, elit, ",
-    price: [15],
+    price: [10],
     photos: {
       web: "desserts/dessert-6.webp",
       webRetina: "desserts/dessert-6@2x.webp",
