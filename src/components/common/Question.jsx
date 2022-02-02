@@ -27,7 +27,7 @@ function Question({ question, answer, ...props }) {
       {...props}
     >
       <div className="flex flex-row max-h-[50rem] justify-between items-center space-x-8">
-        <p className="font-normal">{question}</p>
+        <p className="font-normal w-10/12">{question}</p>
         <AngleDown
           className={`w-6 tablet-small:w-7 tablet:w-8 laptop:w-9 desktop:w-10 transition-transform duration-300 ${rotation}`}
         />
