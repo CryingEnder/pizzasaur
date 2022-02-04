@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Item from "./common/Item";
 import MenuSection from "./MenuSection";
 import Search from "./Search";
@@ -6,15 +6,18 @@ import Sorting from "./Sorting";
 import pizzaArray from "./../services/fakePizzaService";
 import dessertsArray from "./../services/fakeDessertsService";
 import drinksArray from "./../services/fakeDrinksService";
+import { SearchContext } from "./context/SearchContext";
 
 function Menu(props) {
-  const [sortingMethod, setSortingMethod] = useState("");
   const [pizzas, setPizzas] = useState([]);
   const [allPizzas, setAllPizzas] = useState([]);
   const [desserts, setDesserts] = useState([]);
   const [allDesserts, setAllDesserts] = useState([]);
   const [drinks, setDrinks] = useState([]);
   const [allDrinks, setAllDrinks] = useState([]);
+
+  const [itemsFetched, setItemsFetched] = useState(false);
+  const { searchState, setSearchState } = useContext(SearchContext);
 
   function getItems() {
     setPizzas(pizzaArray);
@@ -92,64 +95,79 @@ function Menu(props) {
     }
 
     function setItemsState() {
-      setPizzas([...pizzasSorted]);
-      setDesserts([...dessertsSorted]);
-      setDrinks([...drinksSorted]);
+      setAllPizzas([...pizzasSorted]);
+      setAllDesserts([...dessertsSorted]);
+      setAllDrinks([...drinksSorted]);
     }
 
     if (selectOption === "asc") {
-      pizzasSorted = orderAscending(pizzas);
-      dessertsSorted = orderAscending(desserts);
-      drinksSorted = orderAscending(drinks);
+      pizzasSorted = orderAscending(allPizzas);
+      dessertsSorted = orderAscending(allDesserts);
+      drinksSorted = orderAscending(allDrinks);
       setItemsState();
     }
 
     if (selectOption === "desc") {
-      pizzasSorted = orderDescending(pizzas);
-      dessertsSorted = orderDescending(desserts);
-      drinksSorted = orderDescending(drinks);
+      pizzasSorted = orderDescending(allPizzas);
+      dessertsSorted = orderDescending(allDesserts);
+      drinksSorted = orderDescending(allDrinks);
       setItemsState();
     }
 
     if (selectOption === "low") {
-      pizzasSorted = orderFromLowToHigh(pizzas);
-      dessertsSorted = orderFromLowToHigh(desserts);
-      drinksSorted = orderFromLowToHigh(drinks);
+      pizzasSorted = orderFromLowToHigh(allPizzas);
+      dessertsSorted = orderFromLowToHigh(allDesserts);
+      drinksSorted = orderFromLowToHigh(allDrinks);
       setItemsState();
     }
 
     if (selectOption === "high") {
-      pizzasSorted = orderFromHighToLow(pizzas);
-      dessertsSorted = orderFromHighToLow(desserts);
-      drinksSorted = orderFromHighToLow(drinks);
+      pizzasSorted = orderFromHighToLow(allPizzas);
+      dessertsSorted = orderFromHighToLow(allDesserts);
+      drinksSorted = orderFromHighToLow(allDrinks);
       setItemsState();
     }
   }
 
-  function handleChange(e) {
-    const inputValue = e.target.value;
+  function handleSearch(e) {
+    let inputValue = "";
+    if (e.target) inputValue = e.target.value;
+    else inputValue = e;
+    setSearchState(inputValue);
+
     if (inputValue.length === 0) {
-      setPizzas(allPizzas);
-      setDesserts(allDesserts);
-      setDrinks(allDrinks);
-      orderBy(sortingMethod);
+      setPizzas([...allPizzas]);
+      setDesserts([...allDesserts]);
+      setDrinks([...allDrinks]);
     } else searchItems(inputValue);
   }
 
-  function handleSelect(e) {
-    const selectOption = e.target.value;
-    setSortingMethod(selectOption);
-    orderBy(selectOption);
+  function handleSort(e) {
+    let sortingOption = "";
+    if (e.target) sortingOption = e.target.value;
+    else sortingOption = e;
+    orderBy(sortingOption);
+    handleSearch(searchState);
   }
 
   useEffect(() => {
-    getItems();
-  }, []);
+    if (itemsFetched === false) getItems();
+    if (itemsFetched === true) handleSearch(searchState);
+    setItemsFetched(true);
+
+    return () => {
+      setSearchState("");
+    };
+  }, [searchState]);
 
   return (
     <main className="bg-gradient-to-b from-red-darker to-red-dark pb-16 tablet:pb-20 laptop:pb-24 desktop:pb-28">
-      <Search onChange={handleChange} />
-      <Sorting onChange={handleSelect} />
+      <Search
+        value={searchState}
+        stylesOut="tablet:hidden"
+        onChange={handleSearch}
+      />
+      <Sorting onChange={handleSort} />
       <MenuSection
         className={pizzas.length === 0 ? "hidden" : ""}
         id="pizza-section"

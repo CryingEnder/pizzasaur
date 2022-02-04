@@ -1,9 +1,17 @@
-import React, { useState, useEffect, useRef, Fragment } from "react";
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+  Fragment,
+} from "react";
 import { useLocation } from "react-router-dom";
 import Container from "./common/Container";
 import List from "./common/List";
 import Logo from "./common/Logo";
 import MenuList from "./MenuList";
+import Search from "./Search";
+import { SearchContext } from "./context/SearchContext";
 import { CartIcon, Cross, MenuButton } from "./common/Icons";
 
 function Navbar(props) {
@@ -13,6 +21,12 @@ function Navbar(props) {
   const notVisible = "hidden opacity-0";
   const [visibility, setVisibility] = useState(notVisible);
   const [currentLocation, setCurrentLocation] = useState(location.pathname);
+  const { searchState, setSearchState } = useContext(SearchContext);
+
+  function handleChange(e) {
+    const inputValue = e.target.value;
+    setSearchState(inputValue);
+  }
 
   function showMenu() {
     setVisibility(visible);
@@ -63,8 +77,22 @@ function Navbar(props) {
                 content: "Order online",
                 key: "orderonline",
                 link: "menu",
-                specialStyle: "hidden tablet:block tablet:mr-2 laptop:m-0",
+                specialStyle: `hidden ${
+                  currentLocation !== "/menu" ? "tablet:block" : ""
+                } tablet:mr-2 laptop:m-0`,
                 scrollUp: true,
+              },
+              {
+                content: (
+                  <Search
+                    value={searchState}
+                    onChange={handleChange}
+                    stylesOut={`hidden ${
+                      currentLocation === "/menu" ? "tablet:block" : ""
+                    }`}
+                  />
+                ),
+                key: "searchbox",
               },
               {
                 content: (
