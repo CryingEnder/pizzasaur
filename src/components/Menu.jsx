@@ -28,6 +28,17 @@ function Menu(props) {
     setAllDrinks(drinksArray);
   }
 
+  function noItemsFound() {
+    if (
+      itemsFetched === true &&
+      pizzas.length === 0 &&
+      desserts.length === 0 &&
+      drinks.length === 0
+    )
+      return true;
+    return false;
+  }
+
   function searchItems(input) {
     const inputValue = input.toLowerCase();
 
@@ -168,6 +179,9 @@ function Menu(props) {
         onChange={handleSearch}
       />
       <Sorting onChange={handleSort} />
+      <div className="mt-8 w-full text-center font-ui text-xl font-medium text-zinc-100">
+        {noItemsFound() ? "No items could be found" : ""}
+      </div>
       <MenuSection
         className={pizzas.length === 0 ? "hidden" : ""}
         id="pizza-section"
