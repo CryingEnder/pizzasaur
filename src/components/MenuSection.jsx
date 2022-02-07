@@ -13,8 +13,8 @@ function MenuSection({ header, id, children, ...props }) {
       <Container
         tag="div"
         stylesOut="px-3 tablet-small:px-6 tablet:px-3"
-        stylesIn="grid grid-cols-1 justify-items-center items-center gap-y-12 tablet-small:gap-y-16 tablet:gap-y-12 tablet:grid-cols-2
-         tablet:gap-x-3 laptop:grid-cols-1 laptop:gap-x-4 laptop:gap-y-6 desktop:grid-cols-2 desktop:gap-y-8 relative"
+        stylesIn="relative grid grid-cols-1 items-center justify-items-center gap-y-12 tablet-small:gap-y-16 tablet:grid-cols-2
+         tablet:gap-y-12 tablet:gap-x-3 laptop:grid-cols-1 laptop:gap-x-4 laptop:gap-y-6 desktop:grid-cols-2 desktop:gap-y-8"
       >
         {children}
       </Container>

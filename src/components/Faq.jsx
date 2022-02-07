@@ -8,15 +8,15 @@ function Faq(props) {
     <Container
       tag="section"
       stylesOut="bg-red-dark"
-      stylesIn="text-zinc-100 pt-8 laptop:pt-12 pb-20 tablet:pb-24 laptop:pb-28 desktop:pb-32"
+      stylesIn="pt-8 pb-20 text-zinc-100 tablet:pb-24 laptop:pt-12 laptop:pb-28 desktop:pb-32"
     >
-      <header className="flex flex-col justify-center items-center space-y-2 text-center px-4 mb-12 tablet-small:mb-14 laptop:mb-16 desktop:mb-20">
-        <QuestionMark className="w-10 tablet-small:w-12 tablet:w-14 laptop:w-16 desktop:w-20 fill-current text-yellow-300" />
-        <h2 className="underline underline-offset-2 decoration-orange-400">
+      <header className="mb-12 flex flex-col items-center justify-center space-y-2 px-4 text-center tablet-small:mb-14 laptop:mb-16 desktop:mb-20">
+        <QuestionMark className="w-10 fill-current text-yellow-300 tablet-small:w-12 tablet:w-14 laptop:w-16 desktop:w-20" />
+        <h2 className="underline decoration-orange-400 underline-offset-2">
           Frequently asked questions
         </h2>
       </header>
-      <main className="flex flex-col w-full divide-y-2 divide-solid divide-zinc-100 border-y-2 border-solid border-zinc-100">
+      <main className="flex w-full flex-col divide-y-2 divide-solid divide-zinc-100 border-y-2 border-solid border-zinc-100">
         <Question
           question="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, voluptatibus?"
           answer="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate, corrupti distinctio? Laborum exercitationem, harum sed recusandae voluptatum consequatur rerum accusantium."

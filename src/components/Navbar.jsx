@@ -55,13 +55,13 @@ function Navbar(props) {
       <Container
         tag="nav"
         stylesOut={
-          "bg-red-darker sticky top-0 -mb-1 laptop:m-0 z-30 border-solid border-b-4 border-zinc-100 transition-all nav-bar"
+          "nav-bar sticky top-0 z-30 -mb-1 border-b-4 border-solid border-zinc-100 bg-red-darker transition-all laptop:m-0"
         }
-        stylesIn={"flex flex-col p-1 laptop:px-4 text-zinc-100"}
+        stylesIn={"flex flex-col p-1 text-zinc-100 laptop:px-4"}
       >
-        <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-row items-center justify-between">
           <List
-            className="hidden laptop:flex flex-row justify-center items-center space-x-5 drop-shadow-lg"
+            className="hidden flex-row items-center justify-center space-x-5 drop-shadow-lg laptop:flex"
             items={[
               { content: "Contact", key: "contact1", scrollUp: true },
               { content: "Faq", key: "faq1", link: "faq", scrollUp: true },
@@ -70,8 +70,8 @@ function Navbar(props) {
           <Logo />
           <List
             showMenu={showMenu}
-            className="flex flex-row justify-center items-center space-x-2 laptop:space-x-5 drop-shadow-lg"
-            itemsStyle="flex flex-row justify-center items-center"
+            className="flex flex-row items-center justify-center space-x-2 drop-shadow-lg laptop:space-x-5"
+            itemsStyle="flex flex-row items-center justify-center"
             items={[
               {
                 content: "Order online",
@@ -96,13 +96,13 @@ function Navbar(props) {
               },
               {
                 content: (
-                  <CartIcon className="fill-current w-7 tablet:w-8 laptop:w-9" />
+                  <CartIcon className="w-7 fill-current tablet:w-8 laptop:w-9" />
                 ),
                 key: "shoppingcart",
               },
               {
                 content: (
-                  <MenuButton className="fill-current w-7 tablet:w-8 laptop:w-9 laptop:hidden" />
+                  <MenuButton className="w-7 fill-current tablet:w-8 laptop:hidden laptop:w-9" />
                 ),
                 key: "menubutton",
                 showMenu: true,
@@ -118,19 +118,19 @@ function Navbar(props) {
         )}
       </Container>
       <nav
-        className={`bg-white-faded-50 text-zinc-100 z-30 w-full h-screen fixed flex flex-row justify-center items-start top-0 laptop:hidden ${visibility}`}
+        className={`fixed top-0 z-30 flex h-screen w-full flex-row items-start justify-center bg-white-faded-50 text-zinc-100 laptop:hidden ${visibility}`}
       >
         <div
-          className="relative text-xl tablet:text-2xl rounded-lg p-6 m-3 w-60 bg-gradient-to-b from-red-dark to-red-darker drop-shadow-md"
+          className="relative m-3 w-60 rounded-lg bg-gradient-to-b from-red-dark to-red-darker p-6 text-xl drop-shadow-md tablet:text-2xl"
           ref={ref}
         >
           <Cross
             onClick={closeMenu}
-            className="fill-current absolute top-6 right-4 w-7 tablet:w-9 cursor-pointer transition-colors hover:text-zinc-300"
+            className="absolute top-6 right-4 w-7 cursor-pointer fill-current transition-colors hover:text-zinc-300 tablet:w-9"
           />
           <List
             closeMenu={closeMenu}
-            className="flex flex-col justify-center items-start space-y-4"
+            className="flex flex-col items-start justify-center space-y-4"
             items={[
               {
                 content: "Order online",
@@ -144,7 +144,7 @@ function Navbar(props) {
           >
             {currentLocation === "/menu" && (
               <Fragment>
-                <div className="border-2 border-solid border-zinc-100 rounded-full w-full"></div>
+                <div className="w-full rounded-full border-2 border-solid border-zinc-100"></div>
                 <MenuList
                   closeMenu={closeMenu}
                   listStyle="flex flex-col justify-center items-start space-y-4"

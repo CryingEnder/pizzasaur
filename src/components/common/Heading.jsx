@@ -10,21 +10,21 @@ function Heading({ isButton, link, content, styles, ...props }) {
   return (
     <div
       {...props}
-      className={`w-full text-center drop-shadow-md relative text-zinc-100 ${styles}`}
+      className={`relative w-full text-center text-zinc-100 drop-shadow-md ${styles}`}
     >
-      <div className="bg-yellow-300 h-1 tablet:h-2 mb-0.5 tablet:mb-1"></div>
-      <div className="bg-yellow-500 h-1"></div>
+      <div className="mb-0.5 h-1 bg-yellow-300 tablet:mb-1 tablet:h-2"></div>
+      <div className="h-1 bg-yellow-500"></div>
       {!isButton ? (
-        <div className="-translate-y-[60%] absolute left-0 right-0 mx-auto w-fit p-0.5 tablet:p-1 bg-red-dark border-solid border-4 tablet:border-8 border-yellow-300 rounded-xl tablet:rounded-3xl">
-          <h2 className="border-solid border-4 border-yellow-500 px-6 py-2 tablet:py-3 rounded-md tablet:rounded-xl">
+        <div className="absolute left-0 right-0 mx-auto w-fit -translate-y-[60%] rounded-xl border-4 border-solid border-yellow-300 bg-red-dark p-0.5 tablet:rounded-3xl tablet:border-8 tablet:p-1">
+          <h2 className="rounded-md border-4 border-solid border-yellow-500 px-6 py-2 tablet:rounded-xl tablet:py-3">
             {content}
           </h2>
         </div>
       ) : (
-        <div className="-translate-y-[60%] absolute left-0 right-0 mx-auto w-fit p-0.5 tablet:p-1 cursor-pointer transition-colors bg-red-darker hover:bg-red-darkest border-solid border-4 tablet:border-8 border-yellow-300 rounded-full">
+        <div className="absolute left-0 right-0 mx-auto w-fit -translate-y-[60%] cursor-pointer rounded-full border-4 border-solid border-yellow-300 bg-red-darker p-0.5 transition-colors hover:bg-red-darkest tablet:border-8 tablet:p-1">
           <button
             type="button"
-            className="border-solid border-4 border-yellow-500 px-6 py-2 tablet:py-3 rounded-full text-2xl tablet-small:text-3xl tablet:text-4xl laptop:text-5xl desktop:text-6xl"
+            className="rounded-full border-4 border-solid border-yellow-500 px-6 py-2 text-2xl tablet-small:text-3xl tablet:py-3 tablet:text-4xl laptop:text-5xl desktop:text-6xl"
           >
             <Link
               onClick={scrollUp}

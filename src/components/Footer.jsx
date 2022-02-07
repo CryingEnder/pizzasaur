@@ -7,7 +7,7 @@ import List from "./common/List";
 
 function Footer(props) {
   return (
-    <footer className="w-full text-zinc-100 bg-red-darker z-10">
+    <footer className="z-10 w-full bg-red-darker text-zinc-100">
       <Heading content="Order now" isButton={true} link="menu" />
       <Container
         tag="section"
@@ -15,7 +15,7 @@ function Footer(props) {
           "p-4 flex flex-col justify-center items-center space-y-6 pt-14 tablet:pt-16 laptop:items-end laptop:flex-row laptop:justify-between"
         }
       >
-        <div className="flex flex-col text-center laptop:text-right space-y-2 laptop:order-1">
+        <div className="flex flex-col space-y-2 text-center laptop:order-1 laptop:text-right">
           <List
             linksStyle=""
             className="laptop:order-1"
@@ -24,7 +24,7 @@ function Footer(props) {
               {
                 content: (
                   <div>
-                    <Phone className="inline mb-1 mr-1 fill-current w-6 tablet:w-7 laptop:w-8 desktop:w-9" />
+                    <Phone className="mb-1 mr-1 inline w-6 fill-current tablet:w-7 laptop:w-8 desktop:w-9" />
                     <span>+123 456 789</span>
                   </div>
                 ),
@@ -34,30 +34,30 @@ function Footer(props) {
             ]}
           />
           <List
-            className="flex flex-row justify-center laptop:justify-end space-x-2 pb-3"
+            className="flex flex-row justify-center space-x-2 pb-3 laptop:justify-end"
             items={[
               {
                 content: (
-                  <Facebook className="w-10 tablet:w-12 desktop:w-14 fill-current" />
+                  <Facebook className="w-10 fill-current tablet:w-12 desktop:w-14" />
                 ),
                 key: "facebook",
               },
               {
                 content: (
-                  <Instagram className="w-10 tablet:w-12 desktop:w-14 fill-current" />
+                  <Instagram className="w-10 fill-current tablet:w-12 desktop:w-14" />
                 ),
                 key: "instagram",
               },
               {
                 content: (
-                  <Twitter className="w-10 tablet:w-12 desktop:w-14 fill-current" />
+                  <Twitter className="w-10 fill-current tablet:w-12 desktop:w-14" />
                 ),
                 key: "twitter",
               },
             ]}
           />
         </div>
-        <div className="flex flex-col justify-center items-center laptop:items-start text-center">
+        <div className="flex flex-col items-center justify-center text-center laptop:items-start">
           <Logo />
           <div>Copyright &copy; 2022 Cristian Botez</div>
         </div>

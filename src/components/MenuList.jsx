@@ -8,7 +8,7 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
     {
       content: (
         <div className="flex flex-row items-center justify-center">
-          <Pizza className="inline mr-1 fill-current w-7 desktop:w-9" />
+          <Pizza className="mr-1 inline w-7 fill-current desktop:w-9" />
           <span>Pizza</span>
         </div>
       ),
@@ -18,7 +18,7 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
     {
       content: (
         <div className="flex flex-row items-center justify-center">
-          <Dessert className="inline mr-1 fill-current w-7 desktop:w-9" />
+          <Dessert className="mr-1 inline w-7 fill-current desktop:w-9" />
           <span>Desserts</span>
         </div>
       ),
@@ -28,7 +28,7 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
     {
       content: (
         <div className="flex flex-row items-center justify-center">
-          <Drink className="inline mr-1 fill-current w-7 desktop:w-9" />
+          <Drink className="mr-1 inline w-7 fill-current desktop:w-9" />
           <span>Drinks</span>
         </div>
       ),
@@ -149,20 +149,20 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
   }, [navbarHeight, currentIndex]);
 
   return (
-    <section className="flex flex-row justify-center items-center w-full">
+    <section className="flex w-full flex-row items-center justify-center">
       {tooManyCategories && (
         <ArrowLeft
           onClick={handleLeft}
-          className={`hidden transition-all laptop:block w-12 desktop:w-14 fill-current select-none ${leftArrowStyle}`}
+          className={`hidden w-12 select-none fill-current transition-all laptop:block desktop:w-14 ${leftArrowStyle}`}
         />
       )}
       <div
-        className={`flex overflow-hidden w-full laptop:w-auto ${maxShownCategoriesContainerWidthLaptop} ${maxShownCategoriesContainerWidthDesktop}`}
+        className={`flex w-full overflow-hidden laptop:w-auto ${maxShownCategoriesContainerWidthLaptop} ${maxShownCategoriesContainerWidthDesktop}`}
       >
         <List
           {...props}
           useClassIdentifiers={!disabledSlider}
-          className={`${listStyle} transition-all relative`}
+          className={`${listStyle} relative transition-all`}
           itemsStyle={`${eachCategoryWidthLaptop} ${eachCategoryWidthDesktop} ${itemsStyle}`}
           linksStyle={
             disabledSlider
@@ -175,7 +175,7 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
       {tooManyCategories && (
         <ArrowRight
           onClick={handleRight}
-          className={`hidden transition-all laptop:block w-12 desktop:w-14 fill-current select-none ${rightArrowStyle}`}
+          className={`hidden w-12 select-none fill-current transition-all laptop:block desktop:w-14 ${rightArrowStyle}`}
         />
       )}
     </section>

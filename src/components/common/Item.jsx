@@ -82,14 +82,14 @@ function Item({ itemData, simplified, ...props }) {
   return (
     <article
       {...props}
-      className="flex flex-col laptop:flex-row laptop:justify-center laptop:items-center 
-      text-zinc-800 bg-gradient-to-t from-gray-more-redish to-gray-redish border-solid border-8
-      border-y-red-less-dark-2 border-x-red-less-dark rounded-xl max-w-screen-tablet-small w-full p-6 tablet-small:p-10
-       tablet-small:border-[12px] tablet:border-8 tablet:p-6 tablet:max-w-sm tablet:h-full laptop:max-w-3xl laptop:space-x-8"
+      className="flex w-full max-w-screen-tablet-small flex-col rounded-xl 
+      border-8 border-solid border-y-red-less-dark-2 border-x-red-less-dark bg-gradient-to-t from-gray-more-redish
+      to-gray-redish p-6 text-zinc-800 tablet-small:border-[12px] tablet-small:p-10 tablet:h-full tablet:max-w-sm
+       tablet:border-8 tablet:p-6 laptop:max-w-3xl laptop:flex-row laptop:items-center laptop:justify-center laptop:space-x-8"
     >
       <section
-        className="flex flex-row justify-center items-center drop-shadow-md
-       mb-6 laptop:w-1/2 laptop:mb-0"
+        className="mb-6 flex flex-row items-center justify-center
+       drop-shadow-md laptop:mb-0 laptop:w-1/2"
       >
         <picture className="aspect-w-1 aspect-h-1 w-full">
           <source
@@ -115,17 +115,17 @@ function Item({ itemData, simplified, ...props }) {
           />
         </picture>
       </section>
-      <section className="laptop:w-1/2 desktop:flex desktop:flex-col desktop:justify-between desktop:h-full">
+      <section className="laptop:w-1/2 desktop:flex desktop:h-full desktop:flex-col desktop:justify-between">
         <article>
           <h4
-            className="text-center font-ui font-bold mb-4 text-4xl tablet-small:mb-8 tablet-small:text-5xl tablet:mb-4
-           tablet:text-4xl laptop:mb-3 overflow-hidden overflow-ellipsis"
+            className="mb-4 overflow-hidden overflow-ellipsis text-center font-ui text-4xl font-bold tablet-small:mb-8
+           tablet-small:text-5xl tablet:mb-4 tablet:text-4xl laptop:mb-3"
           >
             {name}
           </h4>
           <p
-            className={`line-clamp-2 text-left font-text font-normal mb-4 text-lg tablet-small:mb-8 tablet-small:text-xl
-             tablet:mb-4 tablet:text-lg laptop:text-xl overflow-hidden overflow-ellipsis ${
+            className={`mb-4 overflow-hidden overflow-ellipsis text-left font-text text-lg font-normal line-clamp-2
+             tablet-small:mb-8 tablet-small:text-xl tablet:mb-4 tablet:text-lg laptop:text-xl ${
                !simplified ? "desktop-big:line-clamp-3" : ""
              }`}
           >
@@ -134,64 +134,64 @@ function Item({ itemData, simplified, ...props }) {
         </article>
         <article>
           <div
-            className={`w-full flex flex-row ${
+            className={`flex w-full flex-row ${
               !simplified ? "justify-between" : "justify-center"
-            } items-center mb-6 tablet-small:mb-8 tablet:mb-6 laptop:mb-6`}
+            } mb-6 items-center tablet-small:mb-8 tablet:mb-6 laptop:mb-6`}
           >
             <div className={`${!simplified ? "" : "hidden"}`}>
-              <p className="text-center font-text font-bold text-lg tablet-small:text-2xl tablet:text-lg">
+              <p className="text-center font-text text-lg font-bold tablet-small:text-2xl tablet:text-lg">
                 Size:
               </p>
-              <div className="flex flex-row justify-center items-center">
+              <div className="flex flex-row items-center justify-center">
                 <Decrement
                   onClick={getPrevSize}
-                  className={`fill-current select-none w-6 tablet-small:w-7 tablet:w-6 ${sizeMinusStyle}`}
+                  className={`w-6 select-none fill-current tablet-small:w-7 tablet:w-6 ${sizeMinusStyle}`}
                 />
-                <p className="text-center font-ui font-semibold text-2xl w-12 tablet-small:text-3xl tablet-small:w-16 tablet:text-2xl tablet:w-12">
+                <p className="w-12 text-center font-ui text-2xl font-semibold tablet-small:w-16 tablet-small:text-3xl tablet:w-12 tablet:text-2xl">
                   {sizes[current]}
                   <span className={unitFontSize}>{unit}</span>
                 </p>
                 <Add
                   onClick={getNextSize}
-                  className={`fill-current select-none w-6 tablet-small:w-7 tablet:w-6 ${sizePlusStyle}`}
+                  className={`w-6 select-none fill-current tablet-small:w-7 tablet:w-6 ${sizePlusStyle}`}
                 />
               </div>
             </div>
             <div>
-              <p className="text-center font-text font-bold text-lg tablet-small:text-2xl tablet:text-lg">
+              <p className="text-center font-text text-lg font-bold tablet-small:text-2xl tablet:text-lg">
                 Quantity:
               </p>
-              <div className="flex flex-row justify-center items-center">
+              <div className="flex flex-row items-center justify-center">
                 <Decrement
                   onClick={decrementQuantity}
-                  className={`fill-current select-none w-6 tablet-small:w-7 tablet:w-6 ${quantityMinusStyle}`}
+                  className={`w-6 select-none fill-current tablet-small:w-7 tablet:w-6 ${quantityMinusStyle}`}
                 />
                 <input
                   value={itemsCount}
                   type="number"
                   onChange={(e) => handleChange(e)}
-                  className="text-center font-ui font-semibold bg-transparent outline-none text-2xl w-12 tablet-small:text-3xl
-                 tablet-small:w-16 tablet:text-2xl tablet:w-12"
+                  className="w-12 bg-transparent text-center font-ui text-2xl font-semibold outline-none tablet-small:w-16
+                 tablet-small:text-3xl tablet:w-12 tablet:text-2xl"
                 />
                 <Add
                   onClick={incrementQuantity}
-                  className={`fill-current select-none w-6 tablet-small:w-7 tablet:w-6 ${quantityPlusStyle}`}
+                  className={`w-6 select-none fill-current tablet-small:w-7 tablet:w-6 ${quantityPlusStyle}`}
                 />
               </div>
             </div>
           </div>
-          <div className="w-full flex flex-col justify-center items-center">
-            <p className="text-center font-text font-semibold mb-2 text-3xl tablet-small:mb-4 tablet-small:text-5xl tablet:mb-2 tablet:text-3xl laptop:text-4xl">
+          <div className="flex w-full flex-col items-center justify-center">
+            <p className="mb-2 text-center font-text text-3xl font-semibold tablet-small:mb-4 tablet-small:text-5xl tablet:mb-2 tablet:text-3xl laptop:text-4xl">
               {currency}
               {showTwoDecimals(price[current] * itemsCount)}
             </p>
             <button
               type="button"
-              className="flex flex-row justify-center items-center space-x-2 font-medium font-ui rounded-xl bg-red-darker transition-colors
-             hover:bg-red-darkest text-zinc-100 text-xl py-2 px-3 tablet-small:px-5 tablet-small:py-3
-              tablet-small:rounded-2xl tablet-small:text-2xl tablet:px-3 tablet:py-2 tablet:rounded-xl tablet:text-xl"
+              className="flex flex-row items-center justify-center space-x-2 rounded-xl bg-red-darker py-2 px-3 font-ui
+             text-xl font-medium text-zinc-100 transition-colors hover:bg-red-darkest tablet-small:rounded-2xl tablet-small:px-5
+              tablet-small:py-3 tablet-small:text-2xl tablet:rounded-xl tablet:px-3 tablet:py-2 tablet:text-xl"
             >
-              <CartAdd className="fill-current w-6" />
+              <CartAdd className="w-6 fill-current" />
               <span>Add to cart</span>
             </button>
           </div>

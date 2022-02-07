@@ -22,17 +22,17 @@ function Question({ question, answer, ...props }) {
 
   return (
     <article
-      className="cursor-pointer select-none fill-current transition-colors hover:bg-red-darker overflow-hidden p-4 laptop:p-6"
+      className="cursor-pointer select-none overflow-hidden fill-current p-4 transition-colors hover:bg-red-darker laptop:p-6"
       onClick={toggleQuestion}
       {...props}
     >
-      <div className="flex flex-row max-h-[50rem] justify-between items-center space-x-8">
-        <p className="font-normal w-10/12">{question}</p>
+      <div className="flex max-h-[50rem] flex-row items-center justify-between space-x-8">
+        <p className="w-10/12 font-normal">{question}</p>
         <AngleDown
-          className={`w-6 tablet-small:w-7 tablet:w-8 laptop:w-9 desktop:w-10 transition-transform duration-300 ${rotation}`}
+          className={`w-6 transition-transform duration-300 tablet-small:w-7 tablet:w-8 laptop:w-9 desktop:w-10 ${rotation}`}
         />
       </div>
-      <p className={`${visibility} transition-all w-10/12`}>{answer}</p>
+      <p className={`${visibility} w-10/12 transition-all`}>{answer}</p>
     </article>
   );
 }

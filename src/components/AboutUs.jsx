@@ -5,7 +5,7 @@ import Heading from "./common/Heading";
 
 function AboutUs(props) {
   return (
-    <main className="bg-red-dark w-full text-zinc-100 z-10">
+    <main className="z-10 w-full bg-red-dark text-zinc-100">
       <Heading content="About us" />
       <Container
         tag="section"

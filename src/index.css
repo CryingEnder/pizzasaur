@@ -93,31 +93,31 @@
   }
 
   nav {
-    @apply text-2xl desktop:text-3xl font-ui font-semibold;
+    @apply font-ui text-2xl font-semibold desktop:text-3xl;
   }
 
   h1 {
-    @apply text-3xl tablet-small:text-4xl tablet:text-5xl laptop:text-6xl desktop:text-7xl font-ui font-semibold;
+    @apply font-ui text-3xl font-semibold tablet-small:text-4xl tablet:text-5xl laptop:text-6xl desktop:text-7xl;
   }
 
   h2 {
-    @apply text-2xl tablet-small:text-3xl tablet:text-4xl laptop:text-5xl desktop:text-6xl font-ui font-semibold;
+    @apply font-ui text-2xl font-semibold tablet-small:text-3xl tablet:text-4xl laptop:text-5xl desktop:text-6xl;
   }
 
   h3 {
-    @apply text-2xl tablet:text-3xl laptop:text-4xl desktop:text-5xl font-ui;
+    @apply font-ui text-2xl tablet:text-3xl laptop:text-4xl desktop:text-5xl;
   }
 
   h4 {
-    @apply text-4xl font-text font-bold;
+    @apply font-text text-4xl font-bold;
   }
 
   p {
-    @apply text-lg tablet:text-xl laptop:text-2xl desktop:text-3xl font-text font-light;
+    @apply font-text text-lg font-light tablet:text-xl laptop:text-2xl desktop:text-3xl;
   }
 
   footer {
-    @apply text-xl tablet:text-2xl desktop:text-3xl font-text;
+    @apply font-text text-xl tablet:text-2xl desktop:text-3xl;
   }
 
   button {

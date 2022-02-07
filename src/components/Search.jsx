@@ -14,10 +14,10 @@ function Search({ stylesOut, ...props }) {
     <Container
       tag="div"
       stylesOut={stylesOut}
-      stylesIn="px-2 pt-8 tablet:p-0 flex flex-row items-center w-64 tablet:w-48 tablet:mt-1 justify-center relative"
+      stylesIn="relative flex w-64 flex-row items-center justify-center px-2 pt-8 tablet:mt-1 tablet:w-48 tablet:p-0"
     >
       <MagnifyingGlass
-        className="absolute left-6 tablet:left-3 w-5 tablet:w-4 fill-current text-zinc-500 cursor-text"
+        className="absolute left-6 w-5 cursor-text fill-current text-zinc-500 tablet:left-3 tablet:w-4"
         onClick={focusInput}
       />
       <input
@@ -25,7 +25,7 @@ function Search({ stylesOut, ...props }) {
         ref={ref}
         type="text"
         placeholder="Quick search..."
-        className="bg-zinc-100 rounded-2xl font-ui font-medium text-zinc-800 w-full pl-12 pr-2 py-4 text-xl tablet:text-lg tablet:py-1 tablet:pl-9 outline-none focus:bg-zinc-200 placeholder-zinc-500 placeholder:text-xl tablet:placeholder:text-lg"
+        className="w-full rounded-2xl bg-zinc-100 py-4 pl-12 pr-2 font-ui text-xl font-medium text-zinc-800 placeholder-zinc-500 outline-none placeholder:text-xl focus:bg-zinc-200 tablet:py-1 tablet:pl-9 tablet:text-lg tablet:placeholder:text-lg"
       />
     </Container>
   );
