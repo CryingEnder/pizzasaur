@@ -161,7 +161,7 @@ function Menu(props) {
   }, [searchState]);
 
   return (
-    <main className="bg-gradient-to-b from-red-darker to-red-dark pb-16 tablet:pb-20 laptop:pb-24 desktop:pb-28">
+    <main className="min-h-screen bg-gradient-to-b from-red-darker to-red-dark pb-16 tablet:pb-20 laptop:pb-24 desktop:pb-28">
       <Search
         value={searchState}
         stylesOut="tablet:hidden"

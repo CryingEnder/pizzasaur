@@ -7,7 +7,7 @@ function Faq(props) {
   return (
     <Container
       tag="section"
-      stylesOut="bg-red-dark"
+      stylesOut="bg-red-dark min-h-screen"
       stylesIn="pt-8 pb-20 text-zinc-100 tablet:pb-24 laptop:pt-12 laptop:pb-28 desktop:pb-32"
     >
       <header className="mb-12 flex flex-col items-center justify-center space-y-2 px-4 text-center tablet-small:mb-14 laptop:mb-16 desktop:mb-20">
