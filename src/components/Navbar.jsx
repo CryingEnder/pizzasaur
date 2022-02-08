@@ -59,19 +59,19 @@ function Navbar(props) {
         }
         stylesIn={"flex flex-col p-1 text-zinc-100 laptop:px-4"}
       >
-        <div className="flex flex-row items-center justify-between">
+        <div className="relative flex flex-row items-center justify-between">
           <List
-            className="hidden flex-row items-center justify-center space-x-5 drop-shadow-lg laptop:flex"
+            className="hidden grow-0 flex-row items-center justify-start space-x-5 drop-shadow-lg laptop:flex laptop:w-80"
             items={[
               { content: "Contact", key: "contact1", scrollUp: true },
               { content: "Faq", key: "faq1", link: "faq", scrollUp: true },
             ]}
           />
-          <Logo />
+          <Logo styles="grow" />
           <List
             showMenu={showMenu}
-            className="flex flex-row items-center justify-center space-x-2 drop-shadow-lg laptop:space-x-5"
-            itemsStyle="flex flex-row items-center justify-center"
+            className="wrap flex flex-row items-center justify-end space-x-2 drop-shadow-lg laptop:w-80 laptop:space-x-3"
+            itemsStyle="flex flex-row items-center justify-end"
             items={[
               {
                 content: "Order online",
@@ -118,7 +118,7 @@ function Navbar(props) {
         )}
       </Container>
       <nav
-        className={`fixed top-0 z-30 flex h-screen w-full flex-row items-start justify-center bg-white-faded-50 text-zinc-100 laptop:hidden ${visibility}`}
+        className={`fixed top-0 z-30 flex w-full flex-row items-start justify-center bg-white-faded-50 text-zinc-100 laptop:hidden ${visibility}`}
       >
         <div
           className="relative m-3 w-60 rounded-lg bg-gradient-to-b from-red-dark to-red-darker p-6 text-xl drop-shadow-md tablet:text-2xl"
@@ -140,6 +140,25 @@ function Navbar(props) {
               },
               { content: "Faq", key: "faq2", link: "faq", scrollUp: true },
               { content: "Contact", key: "contact2", scrollUp: true },
+              { content: "test", key: "test2", scrollUp: true },
+              { content: "test", key: "test3", scrollUp: true },
+              { content: "test", key: "test4", scrollUp: true },
+              { content: "test", key: "test5", scrollUp: true },
+              { content: "test", key: "test6", scrollUp: true },
+              { content: "test", key: "test7", scrollUp: true },
+              { content: "test", key: "test44", scrollUp: true },
+              { content: "test", key: "test55", scrollUp: true },
+              { content: "test", key: "test66", scrollUp: true },
+              { content: "test", key: "test77", scrollUp: true },
+              { content: "test", key: "test88", scrollUp: true },
+              { content: "test", key: "test99", scrollUp: true },
+              { content: "test", key: "test00", scrollUp: true },
+              { content: "test", key: "test0000", scrollUp: true },
+              { content: "test", key: "test00000", scrollUp: true },
+              { content: "test", key: "test466", scrollUp: true },
+              { content: "test", key: "test63535", scrollUp: true },
+              { content: "test", key: "test6332", scrollUp: true },
+              { content: "test", key: "test62", scrollUp: true },
             ]}
           >
             {currentLocation === "/menu" && (
