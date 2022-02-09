@@ -46,7 +46,7 @@ function List({
                 >
                   {i.content}
                 </a>
-              ) : (
+              ) : i.link ? (
                 <Link
                   onClick={() => triggerAction(i)}
                   className={`inline-block ${linksStyle}`}
@@ -54,6 +54,13 @@ function List({
                 >
                   {i.content}
                 </Link>
+              ) : (
+                <div
+                  onClick={() => triggerAction(i)}
+                  className={`inline-block ${linksStyle}`}
+                >
+                  {i.content}
+                </div>
               )}
             </li>
           )
