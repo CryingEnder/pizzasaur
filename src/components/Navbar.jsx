@@ -23,17 +23,31 @@ function Navbar(props) {
   const [currentLocation, setCurrentLocation] = useState(location.pathname);
   const { searchState, setSearchState } = useContext(SearchContext);
 
-  function handleChange(e) {
-    const inputValue = e.target.value;
-    setSearchState(inputValue);
+  function hideBodyOverflow() {
+    document.body.classList.add("overflow-hidden");
+  }
+
+  function showBodyOverflow() {
+    document.body.classList.remove("overflow-hidden");
   }
 
   function showMenu() {
     setVisibility(visible);
+    hideBodyOverflow();
   }
 
   function closeMenu() {
     setVisibility(notVisible);
+    showBodyOverflow();
+  }
+
+  function handleResize() {
+    if (document.body.classList.contains("overflow-hidden")) closeMenu();
+  }
+
+  function handleChange(e) {
+    const inputValue = e.target.value;
+    setSearchState(inputValue);
   }
 
   function handleClickOutside(e) {
@@ -43,10 +57,15 @@ function Navbar(props) {
   useEffect(() => {
     setCurrentLocation(location.pathname);
 
+    if (visibility === visible) hideBodyOverflow();
+
     document.addEventListener("click", handleClickOutside, true);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       document.removeEventListener("click", handleClickOutside, true);
+      window.removeEventListener("resize", handleResize);
+      showBodyOverflow();
     };
   }, [location.pathname]);
 
@@ -118,10 +137,10 @@ function Navbar(props) {
         )}
       </Container>
       <nav
-        className={`fixed top-0 z-30 flex w-full flex-row items-start justify-center bg-white-faded-50 text-zinc-100 laptop:hidden ${visibility}`}
+        className={`fixed top-0 z-30 flex h-screen w-full flex-row items-center justify-center overflow-auto bg-white-faded-50 p-3 text-zinc-100 laptop:hidden ${visibility}`}
       >
         <div
-          className="relative m-3 w-60 rounded-lg bg-gradient-to-b from-red-dark to-red-darker p-6 text-xl drop-shadow-md tablet:text-2xl"
+          className="relative block max-h-80 w-60 overflow-auto rounded-lg bg-gradient-to-b from-red-dark to-red-darker p-6 text-xl drop-shadow-md tablet:max-h-80 tablet:w-72 tablet:text-2xl"
           ref={ref}
         >
           <Cross
@@ -140,25 +159,6 @@ function Navbar(props) {
               },
               { content: "Faq", key: "faq2", link: "faq", scrollUp: true },
               { content: "Contact", key: "contact2", scrollUp: true },
-              { content: "test", key: "test2", scrollUp: true },
-              { content: "test", key: "test3", scrollUp: true },
-              { content: "test", key: "test4", scrollUp: true },
-              { content: "test", key: "test5", scrollUp: true },
-              { content: "test", key: "test6", scrollUp: true },
-              { content: "test", key: "test7", scrollUp: true },
-              { content: "test", key: "test44", scrollUp: true },
-              { content: "test", key: "test55", scrollUp: true },
-              { content: "test", key: "test66", scrollUp: true },
-              { content: "test", key: "test77", scrollUp: true },
-              { content: "test", key: "test88", scrollUp: true },
-              { content: "test", key: "test99", scrollUp: true },
-              { content: "test", key: "test00", scrollUp: true },
-              { content: "test", key: "test0000", scrollUp: true },
-              { content: "test", key: "test00000", scrollUp: true },
-              { content: "test", key: "test466", scrollUp: true },
-              { content: "test", key: "test63535", scrollUp: true },
-              { content: "test", key: "test6332", scrollUp: true },
-              { content: "test", key: "test62", scrollUp: true },
             ]}
           >
             {currentLocation === "/menu" && (
