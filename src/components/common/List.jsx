@@ -72,7 +72,7 @@ function List({
 
 List.defaultProps = {
   itemsStyle: "",
-  linksStyle: "hover:text-zinc-300 transition-colors cursor-pointer",
+  linksStyle: "hover:text-slate-500 transition-colors cursor-pointer",
   useClassIdentifiers: false,
 };
 

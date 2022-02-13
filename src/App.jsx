@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import AboutUs from "./components/AboutUs";
+import HomeMenu from "./components/HomeMenu";
 import Footer from "./components/Footer";
 import Faq from "./components/Faq";
 import Menu from "./components/Menu";
@@ -17,7 +17,7 @@ function App(props) {
           element={
             <Fragment>
               <Hero />
-              <AboutUs />
+              <HomeMenu />
             </Fragment>
           }
         />

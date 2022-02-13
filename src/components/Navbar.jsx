@@ -74,13 +74,15 @@ function Navbar(props) {
       <Container
         tag="nav"
         stylesOut={
-          "nav-bar sticky top-0 z-30 -mb-1 border-b-4 border-solid border-zinc-100 bg-red-darker transition-all laptop:m-0"
+          "nav-bar sticky top-0 z-30 -mb-1 border-b-4 border-solid border-slate-800 bg-slate-200 transition-all laptop:m-0"
         }
-        stylesIn={"flex flex-col p-1 text-zinc-100 laptop:px-4"}
+        stylesIn={
+          "flex flex-col px-1 py-2 text-slate-800 tablet:px-2 laptop:px-5 tablet:py-2"
+        }
       >
         <div className="relative flex flex-row items-center justify-between">
           <List
-            className="hidden grow-0 flex-row items-center justify-start space-x-5 drop-shadow-lg laptop:flex laptop:w-80"
+            className="hidden grow-0 flex-row items-center justify-start space-x-5 drop-shadow laptop:flex laptop:w-80"
             items={[
               { content: "Contact", key: "contact1", scrollUp: true },
               { content: "Faq", key: "faq1", link: "faq", scrollUp: true },
@@ -89,7 +91,7 @@ function Navbar(props) {
           <Logo styles="grow" />
           <List
             showMenu={showMenu}
-            className="wrap flex flex-row items-center justify-end space-x-2 drop-shadow-lg laptop:w-80 laptop:space-x-3"
+            className="wrap flex flex-row items-center justify-end space-x-2 drop-shadow laptop:-mr-1 laptop:w-80"
             itemsStyle="flex flex-row items-center justify-end"
             items={[
               {
@@ -98,7 +100,7 @@ function Navbar(props) {
                 link: "menu",
                 specialStyle: `hidden ${
                   currentLocation !== "/menu" ? "tablet:block" : ""
-                } tablet:mr-2 laptop:m-0`,
+                } tablet:mr-1 laptop:mr-2`,
                 scrollUp: true,
               },
               {
@@ -115,13 +117,13 @@ function Navbar(props) {
               },
               {
                 content: (
-                  <CartIcon className="w-7 fill-current tablet:w-8 laptop:w-9" />
+                  <CartIcon className="w-7 fill-current tablet:w-8 desktop:w-10" />
                 ),
                 key: "shoppingcart",
               },
               {
                 content: (
-                  <MenuButton className="w-7 fill-current tablet:w-8 laptop:hidden laptop:w-9" />
+                  <MenuButton className="w-7 fill-current tablet:w-8 laptop:hidden" />
                 ),
                 key: "menubutton",
                 showMenu: true,
@@ -137,15 +139,15 @@ function Navbar(props) {
         )}
       </Container>
       <nav
-        className={`fixed top-0 z-30 flex h-screen w-full flex-row items-center justify-center overflow-auto bg-white-faded-50 p-3 text-zinc-100 laptop:hidden ${visibility}`}
+        className={`fixed top-0 z-30 flex h-screen w-full flex-row items-center justify-center bg-white-faded-50 p-3 text-slate-800 laptop:hidden ${visibility}`}
       >
         <div
-          className="relative block max-h-80 w-60 overflow-auto rounded-lg bg-gradient-to-b from-red-dark to-red-darker p-6 text-xl drop-shadow-md tablet:max-h-80 tablet:w-72 tablet:text-2xl"
+          className="relative box-content block max-h-80 w-52 overflow-auto rounded-lg border-2 border-solid border-slate-800 bg-slate-100 p-6 text-xl drop-shadow tablet:max-h-80 tablet:w-60 tablet:text-2xl"
           ref={ref}
         >
           <Cross
             onClick={closeMenu}
-            className="absolute top-6 right-4 w-7 cursor-pointer fill-current transition-colors hover:text-zinc-300 tablet:w-9"
+            className="absolute top-6 right-4 w-7 cursor-pointer fill-current transition-colors hover:text-slate-500 tablet:w-9"
           />
           <List
             closeMenu={closeMenu}
@@ -163,7 +165,7 @@ function Navbar(props) {
           >
             {currentLocation === "/menu" && (
               <Fragment>
-                <div className="w-full rounded-full border-2 border-solid border-zinc-100"></div>
+                <div className="w-full rounded-full border-[1px] border-solid border-slate-800"></div>
                 <MenuList
                   closeMenu={closeMenu}
                   listStyle="flex flex-col justify-center items-start space-y-4"

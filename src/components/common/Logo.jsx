@@ -12,7 +12,7 @@ function Logo({ styles, ...props }) {
     <Link onClick={scrollUp} to="/">
       <img
         {...props}
-        className={`w-40 cursor-pointer drop-shadow-lg tablet:w-44 laptop:w-56 desktop:w-64 ${styles}`}
+        className={`w-44 cursor-pointer drop-shadow tablet:w-48 laptop:w-56 desktop:w-72 ${styles}`}
         src={logo}
         alt="Pizzasaur logo"
       />

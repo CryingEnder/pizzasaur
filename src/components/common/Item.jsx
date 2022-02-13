@@ -89,7 +89,7 @@ function Item({ itemData, simplified, ...props }) {
     >
       <section
         className="mb-6 flex flex-row items-center justify-center
-       drop-shadow-md laptop:mb-0 laptop:w-1/2"
+       drop-shadow laptop:mb-0 laptop:w-1/2"
       >
         <picture className="aspect-w-1 aspect-h-1 w-full">
           <source

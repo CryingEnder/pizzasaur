@@ -7,12 +7,12 @@ import List from "./common/List";
 
 function Footer(props) {
   return (
-    <footer className="z-10 w-full bg-red-darker text-zinc-100">
+    <footer className="z-10 w-full bg-slate-200 text-slate-800">
       <Heading content="Order now" isButton={true} link="menu" />
       <Container
         tag="section"
         stylesIn={
-          "p-4 flex flex-col justify-center items-center space-y-6 pt-14 tablet:pt-16 laptop:items-end laptop:flex-row laptop:justify-between"
+          "p-2 flex flex-col justify-center items-center space-y-6 pt-14 tablet:pt-16 laptop:items-end laptop:flex-row laptop:justify-between"
         }
       >
         <div className="flex flex-col space-y-2 text-center laptop:order-1 laptop:text-right">
@@ -23,7 +23,7 @@ function Footer(props) {
               { content: "1111 Example Street", key: "street1" },
               {
                 content: (
-                  <div>
+                  <div className="mt-1">
                     <Phone className="mb-1 mr-1 inline w-6 fill-current tablet:w-7 laptop:w-8 desktop:w-9" />
                     <span>+123 456 789</span>
                   </div>
@@ -57,7 +57,7 @@ function Footer(props) {
             ]}
           />
         </div>
-        <div className="flex flex-col items-center justify-center text-center laptop:items-start">
+        <div className="flex flex-col items-center justify-center space-y-1 text-center laptop:items-start">
           <Logo />
           <div>Copyright &copy; 2022 Cristian Botez</div>
         </div>

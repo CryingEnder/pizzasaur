@@ -22,7 +22,7 @@ function Question({ question, answer, ...props }) {
 
   return (
     <article
-      className="cursor-pointer select-none overflow-hidden fill-current p-4 transition-colors hover:bg-red-darker laptop:p-6"
+      className="cursor-pointer select-none overflow-hidden fill-current p-4 transition-colors hover:bg-slate-200 laptop:p-6"
       onClick={toggleQuestion}
       {...props}
     >

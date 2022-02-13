@@ -189,7 +189,6 @@ const pizzaArray = [
       oldRetina: "pizza/pizza-14@2x.png",
     },
   },
-  ,
   {
     _id: 15,
     name: "Oryctodromeus",
@@ -203,7 +202,6 @@ const pizzaArray = [
       oldRetina: "pizza/pizza-15@2x.png",
     },
   },
-  ,
   {
     _id: 16,
     name: "Draconyx",

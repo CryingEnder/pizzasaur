@@ -89,7 +89,7 @@
   }
 
   body {
-    @apply bg-red-darker;
+    @apply bg-gradient-to-b from-slate-100 to-slate-200;
   }
 
   nav {
@@ -97,11 +97,11 @@
   }
 
   h1 {
-    @apply font-ui text-3xl font-semibold tablet-small:text-4xl tablet:text-5xl laptop:text-6xl desktop:text-7xl;
+    @apply font-ui text-3xl font-semibold tablet-small:text-4xl tablet:text-5xl laptop:text-6xl desktop:text-7xl desktop-big:text-[5.25rem];
   }
 
   h2 {
-    @apply font-ui text-2xl font-semibold tablet-small:text-3xl tablet:text-4xl laptop:text-5xl desktop:text-6xl;
+    @apply font-ui text-2xl font-semibold tablet-small:text-3xl tablet:text-4xl laptop:text-5xl desktop:text-6xl desktop-big:text-7xl;
   }
 
   h3 {

@@ -166,7 +166,7 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
           itemsStyle={`${eachCategoryWidthLaptop} ${eachCategoryWidthDesktop} ${itemsStyle}`}
           linksStyle={
             disabledSlider
-              ? "hover:text-zinc-300 transition-colors cursor-pointer"
+              ? "hover:text-slate-500 transition-colors cursor-pointer"
               : ""
           }
           items={categories}
