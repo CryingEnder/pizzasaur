@@ -74,7 +74,7 @@ function Navbar(props) {
       <Container
         tag="nav"
         stylesOut={
-          "nav-bar sticky top-0 z-30 -mb-1 border-b-4 border-solid border-slate-800 bg-slate-200 transition-all laptop:m-0"
+          "nav-bar sticky top-0 z-30 -mb-1 border-b-4 border-solid border-slate-800 bg-slate-100 transition-all laptop:m-0"
         }
         stylesIn={
           "flex flex-col px-1 py-2 text-slate-800 tablet:px-2 laptop:px-5 tablet:py-2"

@@ -41,11 +41,11 @@ function HomeMenu(props) {
         stylesOut={
           "pt-12 pb-16 tablet:pt-14 tablet:pb-20 laptop:pt-20 laptop:pb-24 desktop:pt-24 desktop:pb-28"
         }
-        stylesIn={"flex flex-col space-y-6 desktop:space-y-8"}
+        stylesIn={"flex flex-col"}
       >
-        <DividerTop className="mx-2 fill-current text-slate-800" />
-        <header className="flex w-full flex-row px-3 font-text text-xl font-medium italic text-amber-600 tablet:text-2xl laptop:px-2 desktop:text-3xl">
-          <div className="flex w-full flex-row laptop:mr-4 laptop:w-1/2">
+        <DividerTop className="mx-2 mb-8 fill-current text-slate-800 laptop:mb-10" />
+        <header className="mb-6 flex w-full flex-row px-3 font-text text-xl font-medium italic text-amber-600 tablet:text-2xl laptop:mb-8 laptop:px-2 desktop:text-3xl">
+          <div className="flex w-full flex-row items-start justify-center laptop:mr-4 laptop:w-1/2">
             <div className="w-1/2"></div>
             {pizzaSizes.map(
               (size) =>
@@ -72,7 +72,7 @@ function HomeMenu(props) {
                 )
             )}
           </div>
-          <div className="hidden w-1/2 flex-row laptop:flex">
+          <div className="hidden w-1/2 flex-row items-start justify-center laptop:flex">
             <div className="w-1/2"></div>
             {pizzaSizes.map(
               (size) =>
@@ -98,11 +98,14 @@ function HomeMenu(props) {
             )}
           </div>
         </header>
-        <section className="grid w-full grid-cols-1 justify-items-center gap-x-4 gap-y-7 px-3 pb-4 tablet:gap-y-8 laptop:grid-cols-2 laptop:px-4">
+        <section className="grid w-full grid-cols-1 gap-y-7 px-3 pb-4 tablet:gap-y-8 laptop:grid-cols-2 laptop:gap-x-4 laptop:gap-y-9 laptop:px-4">
           {pizzas.map(
             (pizza) =>
               pizza && (
-                <div key={pizza._id + "_home"} className="flex w-full flex-row">
+                <div
+                  key={pizza._id + "_home"}
+                  className="flex w-full flex-row items-start justify-center"
+                >
                   <div className="flex w-1/2 flex-col space-y-1 tablet:space-y-2">
                     <div className="font-ui text-xl font-bold tablet:text-2xl laptop:text-3xl laptop:font-semibold">
                       {pizza.name}
@@ -126,15 +129,17 @@ function HomeMenu(props) {
                     ) : (
                       <div
                         key={pizza._id + "_empty_space_" + Math.random()}
-                        className="w-1/6 text-center laptop:w-[14%]"
-                      ></div>
+                        className="w-1/6 text-center font-ui text-lg font-medium text-slate-700 tablet:text-xl laptop:w-[14%] desktop:text-2xl"
+                      >
+                        --
+                      </div>
                     )
                   )}
                 </div>
               )
           )}
         </section>
-        <DividerBottom className="mx-2 fill-current text-slate-800" />
+        <DividerBottom className="mx-2 mt-8 fill-current text-slate-800 laptop:mt-10" />
       </Container>
     </main>
   );

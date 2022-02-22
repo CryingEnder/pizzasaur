@@ -7,7 +7,7 @@ import List from "./common/List";
 
 function Footer(props) {
   return (
-    <footer className="z-10 w-full bg-slate-200 text-slate-800">
+    <footer className="z-10 w-full bg-slate-100 text-slate-800">
       <Heading content="Order now" isButton={true} link="menu" />
       <Container
         tag="section"
