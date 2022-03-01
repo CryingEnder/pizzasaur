@@ -11,7 +11,9 @@ import List from "./common/List";
 import Logo from "./common/Logo";
 import MenuList from "./MenuList";
 import Search from "./Search";
+import Sorting from "./Sorting";
 import { SearchContext } from "./context/SearchContext";
+import { SortingContext } from "./context/SortingContext";
 import { CartIcon, Cross, MenuButton } from "./common/Icons";
 
 function Navbar(props) {
@@ -22,6 +24,7 @@ function Navbar(props) {
   const [visibility, setVisibility] = useState(notVisible);
   const [currentLocation, setCurrentLocation] = useState(location.pathname);
   const { searchState, setSearchState } = useContext(SearchContext);
+  const { sortingState, setSortingState } = useContext(SortingContext);
 
   function hideBodyOverflow() {
     document.body.classList.add("overflow-hidden");
@@ -45,9 +48,18 @@ function Navbar(props) {
     if (document.body.classList.contains("overflow-hidden")) closeMenu();
   }
 
-  function handleChange(e) {
-    const inputValue = e.target.value;
+  function handleSearchingChange(e) {
+    let inputValue = "";
+    if (e.target) inputValue = e.target.value;
+    else inputValue = e;
     setSearchState(inputValue);
+  }
+
+  function handleSortingChange(e) {
+    let inputValue = "";
+    if (e.target) inputValue = e.target.value;
+    else inputValue = e;
+    setSortingState(inputValue);
   }
 
   function handleClickOutside(e) {
@@ -77,10 +89,10 @@ function Navbar(props) {
           "nav-bar sticky top-0 z-30 -mb-1 border-b-4 border-solid border-slate-800 bg-slate-100 transition-all laptop:m-0"
         }
         stylesIn={
-          "flex flex-col px-1 py-2 text-slate-800 tablet:px-2 laptop:px-5 tablet:py-2"
+          "flex flex-col px-1 py-2 text-slate-800 tablet:px-2 laptop:px-5 tablet:py-2 relative"
         }
       >
-        <div className="relative flex flex-row items-center justify-between">
+        <div className="flex flex-row items-center justify-between">
           <List
             className="hidden grow-0 flex-row items-center justify-start space-x-5 drop-shadow laptop:flex laptop:w-80"
             items={[
@@ -88,7 +100,7 @@ function Navbar(props) {
               { content: "Faq", key: "faq1", link: "faq", scrollUp: true },
             ]}
           />
-          <Logo styles="grow" />
+          <Logo />
           <List
             showMenu={showMenu}
             className="wrap flex flex-row items-center justify-end space-x-2 drop-shadow laptop:-mr-1 laptop:w-80"
@@ -107,13 +119,14 @@ function Navbar(props) {
                 content: (
                   <Search
                     value={searchState}
-                    onChange={handleChange}
-                    stylesOut={`hidden ${
+                    onChange={handleSearchingChange}
+                    styles={`hidden ${
                       currentLocation === "/menu" ? "tablet:block" : ""
                     }`}
                   />
                 ),
                 key: "searchbox",
+                disableLinkStyle: true,
               },
               {
                 content: (
@@ -132,10 +145,16 @@ function Navbar(props) {
           />
         </div>
         {currentLocation === "/menu" && (
-          <MenuList
-            listStyle="hidden laptop:flex flex flex-row justify-center items-center py-2 categories"
-            itemsStyle="flex flex-row justify-center items-center"
-          />
+          <Fragment>
+            <MenuList
+              listStyle="hidden laptop:flex flex flex-row justify-center items-center py-2 categories"
+              itemsStyle="flex flex-row justify-center items-center"
+            />
+            <Sorting
+              styles="absolute hidden right-0 top-0 mt-4 laptop:mt-16 desktop:mt-[4.75rem] mr-[19rem] laptop:mr-20 tablet:block"
+              onChange={handleSortingChange}
+            />
+          </Fragment>
         )}
       </Container>
       <nav

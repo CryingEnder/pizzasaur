@@ -7,6 +7,7 @@ import pizzaArray from "./../services/fakePizzaService";
 import dessertsArray from "./../services/fakeDessertsService";
 import drinksArray from "./../services/fakeDrinksService";
 import { SearchContext } from "./context/SearchContext";
+import { SortingContext } from "./context/SortingContext";
 
 function Menu(props) {
   const [pizzas, setPizzas] = useState([]);
@@ -18,6 +19,7 @@ function Menu(props) {
 
   const [itemsFetched, setItemsFetched] = useState(false);
   const { searchState, setSearchState } = useContext(SearchContext);
+  const { sortingState, setSortingState } = useContext(SortingContext);
 
   function getItems() {
     setPizzas(pizzaArray);
@@ -157,31 +159,43 @@ function Menu(props) {
     let sortingOption = "";
     if (e.target) sortingOption = e.target.value;
     else sortingOption = e;
+    setSortingState(sortingOption);
     orderBy(sortingOption);
     handleSearch(searchState);
   }
 
   useEffect(() => {
     if (itemsFetched === false) getItems();
-    if (itemsFetched === true) handleSearch(searchState);
+    if (itemsFetched === true) {
+      handleSearch(searchState);
+      handleSort(sortingState);
+    }
     setItemsFetched(true);
 
     return () => {
       setSearchState("");
+      setSortingState("");
     };
-  }, [searchState]);
+  }, [searchState, sortingState]);
 
   return (
     <main className="min-h-screen pb-16 tablet:pb-20 laptop:pb-24 desktop:pb-28">
-      <Search
-        value={searchState}
-        stylesOut="tablet:hidden"
-        onChange={handleSearch}
-      />
-      <Sorting onChange={handleSort} />
-      <div className="mt-8 w-full text-center font-ui text-xl font-medium text-zinc-100">
-        {noItemsFound() ? "No items could be found" : ""}
+      <div className="relative mt-8 flex w-full flex-row items-center justify-between px-8">
+        <Search
+          value={searchState}
+          styles="tablet:hidden"
+          onChange={handleSearch}
+        />
+        <Sorting
+          styles="tablet:hidden absolute right-0 top-0"
+          onChange={handleSort}
+        />
       </div>
+      {noItemsFound() ? (
+        <div className="mt-8 w-full text-center font-ui text-xl font-medium text-slate-800"></div>
+      ) : (
+        ""
+      )}
       <MenuSection
         className={pizzas.length === 0 ? "hidden" : ""}
         id="pizza-section"

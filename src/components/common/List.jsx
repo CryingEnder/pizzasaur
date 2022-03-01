@@ -41,7 +41,9 @@ function List({
               {i.link && i.link.search("#") === 0 ? (
                 <a
                   onClick={() => triggerAction(i)}
-                  className={`inline-block ${linksStyle}`}
+                  className={`inline-block ${
+                    !i.disableLinkStyle ? linksStyle : ""
+                  }`}
                   href={i.link ? i.link : (e) => e.preventDefault()}
                 >
                   {i.content}
@@ -49,7 +51,9 @@ function List({
               ) : i.link ? (
                 <Link
                   onClick={() => triggerAction(i)}
-                  className={`inline-block ${linksStyle}`}
+                  className={`inline-block ${
+                    !i.disableLinkStyle ? linksStyle : ""
+                  }`}
                   to={i.link ? i.link : (e) => e.preventDefault()}
                 >
                   {i.content}
@@ -57,7 +61,9 @@ function List({
               ) : (
                 <div
                   onClick={() => triggerAction(i)}
-                  className={`inline-block ${linksStyle}`}
+                  className={`inline-block ${
+                    !i.disableLinkStyle ? linksStyle : ""
+                  }`}
                 >
                   {i.content}
                 </div>

@@ -37,16 +37,16 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
     },
   ];
 
-  const maximumShownCategories = 6; //If this value is changed, the four values below must also be changed
+  const maximumShownCategories = 5; //If this value is changed, the values below must also be changed
   const eachCategoryWidthLaptop = "laptop:w-36"; //w-36 = 9rem
-  const maxShownCategoriesContainerWidthLaptop = "laptop:max-w-[54rem]";
+  const maxShownCategoriesContainerWidthLaptop = "laptop:max-w-[45rem]";
   const eachCategoryWidthDesktop = "desktop:w-44"; //w-44 = 11rem
-  const maxShownCategoriesContainerWidthDesktop = "desktop:max-w-[66rem]";
+  const maxShownCategoriesContainerWidthDesktop = "desktop:max-w-[55rem]";
   // maxShownCategoriesContainerWidth = maximumShownCategories * eachCategoryWidth (in rem)
 
-  const disabled = "text-zinc-500 cursor-default";
+  const disabled = "text-slate-400 cursor-default";
   const enabled =
-    "hover:text-zinc-300 cursor-pointer hover:scale-110 active:scale-100";
+    "hover:text-slate-500 cursor-pointer hover:scale-110 active:scale-100";
   const tooManyCategories = categories.length > maximumShownCategories;
   const maxIndex = categories.length - maximumShownCategories;
   const [currentIndex, setCurrentIndex] = useState(-1);
