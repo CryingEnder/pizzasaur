@@ -27,12 +27,14 @@ function Question({ question, answer, ...props }) {
       {...props}
     >
       <div className="flex max-h-[50rem] flex-row items-center justify-between space-x-8">
-        <p className="w-10/12 font-normal">{question}</p>
+        <p className="w-10/12 font-semibold">{question}</p>
         <AngleDown
           className={`w-6 transition-transform duration-300 tablet-small:w-7 tablet:w-8 laptop:w-9 desktop:w-10 ${rotation}`}
         />
       </div>
-      <p className={`${visibility} w-10/12 transition-all`}>{answer}</p>
+      <p className={`${visibility} w-10/12 font-normal transition-all`}>
+        {answer}
+      </p>
     </article>
   );
 }

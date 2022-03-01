@@ -8,9 +8,9 @@ function Faq(props) {
     <Container
       tag="section"
       stylesOut="min-h-screen"
-      stylesIn="pt-8 pb-20 text-slate-800 tablet:pb-24 laptop:pt-12 laptop:pb-28 desktop:pb-32"
+      stylesIn="pt-8 pb-20 tablet:pb-24 laptop:pt-12 laptop:pb-28 desktop:pb-32"
     >
-      <header className="mb-12 flex flex-col items-center justify-center space-y-2 px-4 text-center tablet-small:mb-14 laptop:mb-16 desktop:mb-20">
+      <header className="mb-12 flex flex-col items-center justify-center space-y-2 px-4 text-center text-slate-800 tablet-small:mb-14 laptop:mb-16 desktop:mb-20">
         <QuestionMark className="w-10 fill-current text-slate-900 tablet-small:w-12 tablet:w-14 laptop:w-16 desktop:w-20" />
         <h2 className="underline decoration-amber-500 underline-offset-2">
           Frequently asked questions
