@@ -22,8 +22,8 @@ function Item({ itemData, simplified, ...props }) {
   const currency = "$";
   const fontStyle = "font-bold text-sm tablet-small:text-base";
   const enabledStyle =
-    "transition-colors hover:text-zinc-300 active:text-zinc-200 cursor-pointer";
-  const disabledStyle = "text-zinc-600";
+    "transition-colors hover:text-slate-600 active:text-slate-500 cursor-pointer";
+  const disabledStyle = "text-slate-400";
 
   const [itemsCount, setItemsCount] = useState(1);
   const [current, setCurrent] = useState(0);
@@ -83,9 +83,8 @@ function Item({ itemData, simplified, ...props }) {
     <article
       {...props}
       className="flex w-full max-w-screen-tablet-small flex-col rounded-xl 
-      border-8 border-solid border-y-red-less-dark-2 border-x-red-less-dark bg-gradient-to-t from-gray-more-redish
-      to-gray-redish p-6 text-zinc-800 tablet-small:border-[12px] tablet-small:p-10 tablet:h-full tablet:max-w-sm
-       tablet:border-8 tablet:p-6 laptop:max-w-3xl laptop:flex-row laptop:items-center laptop:justify-center laptop:space-x-8"
+      border-4 border-solid border-y-slate-800 border-x-slate-700 bg-slate-200 p-6 text-slate-800 tablet-small:border-[5px] tablet-small:p-10 tablet:h-full tablet:max-w-sm
+       tablet:border-4 tablet:p-6 laptop:max-w-3xl laptop:flex-row laptop:items-center laptop:justify-center laptop:space-x-8"
     >
       <section
         className="mb-6 flex flex-row items-center justify-center
@@ -187,8 +186,8 @@ function Item({ itemData, simplified, ...props }) {
             </p>
             <button
               type="button"
-              className="flex flex-row items-center justify-center space-x-2 rounded-xl bg-red-darker py-2 px-3 font-ui
-             text-xl font-medium text-zinc-100 transition-colors hover:bg-red-darkest tablet-small:rounded-2xl tablet-small:px-5
+              className="flex flex-row items-center justify-center space-x-2 rounded-xl bg-slate-700 py-2 px-3 font-ui
+             text-xl font-medium text-slate-100 transition-colors hover:bg-amber-600 active:bg-amber-700 tablet-small:rounded-2xl tablet-small:px-5
               tablet-small:py-3 tablet-small:text-2xl tablet:rounded-xl tablet:px-3 tablet:py-2 tablet:text-xl"
             >
               <CartAdd className="w-6 fill-current" />

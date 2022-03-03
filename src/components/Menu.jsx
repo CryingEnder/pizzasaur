@@ -22,12 +22,12 @@ function Menu(props) {
   const { sortingState, setSortingState } = useContext(SortingContext);
 
   function getItems() {
-    setPizzas(pizzaArray);
-    setDesserts(dessertsArray);
-    setDrinks(drinksArray);
-    setAllPizzas(pizzaArray);
-    setAllDesserts(dessertsArray);
-    setAllDrinks(drinksArray);
+    setPizzas([...pizzaArray]);
+    setDesserts([...dessertsArray]);
+    setDrinks([...drinksArray]);
+    setAllPizzas([...pizzaArray]);
+    setAllDesserts([...dessertsArray]);
+    setAllDrinks([...drinksArray]);
   }
 
   function noItemsFound() {
@@ -113,6 +113,10 @@ function Menu(props) {
       setAllDrinks([...drinksSorted]);
     }
 
+    if (selectOption === "") {
+      getItems();
+    }
+
     if (selectOption === "asc") {
       pizzasSorted = orderAscending(allPizzas);
       dessertsSorted = orderAscending(allDesserts);
@@ -175,24 +179,24 @@ function Menu(props) {
     return () => {
       setSearchState("");
       setSortingState("");
+      setItemsFetched(false);
     };
   }, [searchState, sortingState]);
 
   return (
     <main className="min-h-screen pb-16 tablet:pb-20 laptop:pb-24 desktop:pb-28">
-      <div className="relative mt-8 flex w-full flex-row items-center justify-between px-8">
+      <div className="relative mt-8 mb-16 flex w-full flex-col items-center justify-start">
         <Search
           value={searchState}
-          styles="tablet:hidden"
+          styles="tablet:hidden mb-4"
           onChange={handleSearch}
         />
-        <Sorting
-          styles="tablet:hidden absolute right-0 top-0"
-          onChange={handleSort}
-        />
+        <Sorting styles="tablet:hidden top-16 absolute" onChange={handleSort} />
       </div>
       {noItemsFound() ? (
-        <div className="mt-8 w-full text-center font-ui text-xl font-medium text-slate-800"></div>
+        <div className="mt-20 w-full text-center font-ui text-xl font-medium text-slate-800">
+          No items could be found.
+        </div>
       ) : (
         ""
       )}

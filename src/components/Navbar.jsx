@@ -103,7 +103,7 @@ function Navbar(props) {
           <Logo />
           <List
             showMenu={showMenu}
-            className="wrap flex flex-row items-center justify-end space-x-2 drop-shadow laptop:-mr-1 laptop:w-80"
+            className="wrap flex flex-row items-center justify-end space-x-2 tablet:space-x-1 laptop:-mr-1 laptop:w-80"
             itemsStyle="flex flex-row items-center justify-end"
             items={[
               {
@@ -120,7 +120,7 @@ function Navbar(props) {
                   <Search
                     value={searchState}
                     onChange={handleSearchingChange}
-                    styles={`hidden ${
+                    styles={`hidden mt-1 ${
                       currentLocation === "/menu" ? "tablet:block" : ""
                     }`}
                   />
@@ -151,7 +151,7 @@ function Navbar(props) {
               itemsStyle="flex flex-row justify-center items-center"
             />
             <Sorting
-              styles="absolute hidden right-0 top-0 mt-4 laptop:mt-16 desktop:mt-[4.75rem] mr-[19rem] laptop:mr-20 tablet:block"
+              styles="absolute hidden right-0 top-0 mt-[0.75rem] laptop:mt-[4.6rem] desktop:mt-[5.6rem] mr-[18.35rem] laptop:mr-[4.4rem] desktop:mr-[4.9rem] tablet:block"
               onChange={handleSortingChange}
             />
           </Fragment>

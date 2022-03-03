@@ -8,6 +8,14 @@ function AngleDown({ ...props }) {
   );
 }
 
+function AngleDownBold({ ...props }) {
+  return (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M1.51,6.079a1.492,1.492,0,0,1,1.06.44l7.673,7.672a2.5,2.5,0,0,0,3.536,0L21.44,6.529A1.5,1.5,0,1,1,23.561,8.65L15.9,16.312a5.505,5.505,0,0,1-7.778,0L.449,8.64A1.5,1.5,0,0,1,1.51,6.079Z" />
+    </svg>
+  );
+}
+
 function ArrowLeft({ ...props }) {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -20,6 +28,22 @@ function ArrowRight({ ...props }) {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M13.121,6.293a1,1,0,0,0,0,1.414L16.413,11,6,11.007a1,1,0,1,0,0,2L16.414,13l-3.293,3.293a1,1,0,1,0,1.414,1.414l3.586-3.585a3,3,0,0,0,0-4.243L14.535,6.293A1,1,0,0,0,13.121,6.293Z" />
+    </svg>
+  );
+}
+
+function ArrowSmallDown({ ...props }) {
+  return (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M17.707,13.121a1,1,0,0,0-1.414,0L13,16.413,12.993,6a1,1,0,0,0-2,0L11,16.414,7.707,13.121a1,1,0,1,0-1.414,1.414l3.585,3.586a3,3,0,0,0,4.243,0l3.586-3.586A1,1,0,0,0,17.707,13.121Z" />
+    </svg>
+  );
+}
+
+function ArrowSmallUp({ ...props }) {
+  return (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M6.293,10.879a1,1,0,0,0,1.414,0L11,7.587,11.007,18a1,1,0,0,0,2,0L13,7.586l3.293,3.293a1,1,0,1,0,1.414-1.414L14.122,5.879a3,3,0,0,0-4.243,0L6.293,9.465A1,1,0,0,0,6.293,10.879Z" />
     </svg>
   );
 }
@@ -369,8 +393,11 @@ function DividerTop({ ...props }) {
 export {
   MagnifyingGlass,
   AngleDown,
+  AngleDownBold,
   ArrowLeft,
   ArrowRight,
+  ArrowSmallDown,
+  ArrowSmallUp,
   AngleSmallLeft,
   AngleSmallRight,
   CartIcon,

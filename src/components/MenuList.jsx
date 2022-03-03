@@ -37,11 +37,11 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
     },
   ];
 
-  const maximumShownCategories = 5; //If this value is changed, the values below must also be changed
+  const maximumShownCategories = 4; //If this value is changed, the values below must also be changed
   const eachCategoryWidthLaptop = "laptop:w-36"; //w-36 = 9rem
-  const maxShownCategoriesContainerWidthLaptop = "laptop:max-w-[45rem]";
+  const maxShownCategoriesContainerWidthLaptop = "laptop:max-w-[36rem]";
   const eachCategoryWidthDesktop = "desktop:w-44"; //w-44 = 11rem
-  const maxShownCategoriesContainerWidthDesktop = "desktop:max-w-[55rem]";
+  const maxShownCategoriesContainerWidthDesktop = "desktop:max-w-[44rem]";
   // maxShownCategoriesContainerWidth = maximumShownCategories * eachCategoryWidth (in rem)
 
   const disabled = "text-slate-400 cursor-default";
@@ -80,9 +80,9 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
           position.offsetTop <= currentScroll &&
           position.offsetTop + position.offsetHeight > currentScroll
         ) {
-          category.classList.add("text-yellow-400");
+          category.classList.add("text-amber-500");
           slide(keys.indexOf(category));
-        } else category.classList.remove("text-yellow-400");
+        } else category.classList.remove("text-amber-500");
       }
   }
 
@@ -149,7 +149,7 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
   }, [navbarHeight, currentIndex]);
 
   return (
-    <section className="flex w-full flex-row items-center justify-center">
+    <section className="flex w-full flex-row items-center justify-center laptop:mt-3">
       {tooManyCategories && (
         <ArrowLeft
           onClick={handleLeft}
@@ -164,11 +164,7 @@ function MenuList({ listStyle, itemsStyle, disabledSlider, ...props }) {
           useClassIdentifiers={!disabledSlider}
           className={`${listStyle} relative transition-all`}
           itemsStyle={`${eachCategoryWidthLaptop} ${eachCategoryWidthDesktop} ${itemsStyle}`}
-          linksStyle={
-            disabledSlider
-              ? "hover:text-slate-500 transition-colors cursor-pointer"
-              : ""
-          }
+          //here can add linksStyle and then use disabledSlider to edit the CSS of the links
           items={categories}
         />
       </div>
