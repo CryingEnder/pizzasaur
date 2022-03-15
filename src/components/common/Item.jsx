@@ -114,7 +114,7 @@ function Item({ itemData, simplified, ...props }) {
           />
         </picture>
       </section>
-      <section className="laptop:w-1/2 desktop:flex desktop:h-full desktop:flex-col desktop:justify-between">
+      <section className="flex h-full flex-col justify-between laptop:w-1/2">
         <article>
           <h4
             className="mb-4 overflow-hidden overflow-ellipsis text-center font-ui text-4xl font-bold tablet-small:mb-8
