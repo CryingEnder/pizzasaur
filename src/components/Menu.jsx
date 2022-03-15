@@ -146,11 +146,17 @@ function Menu(props) {
     }
   }
 
+  function scrollUp() {
+    window.scrollTo(0, 0);
+  }
+
   function handleSearch(e) {
     let inputValue = "";
     if (e.target) inputValue = e.target.value;
     else inputValue = e;
     setSearchState(inputValue);
+
+    scrollUp();
 
     if (inputValue.length === 0) {
       setPizzas([...allPizzas]);
@@ -184,8 +190,8 @@ function Menu(props) {
   }, [searchState, sortingState]);
 
   return (
-    <main className="min-h-screen pb-16 tablet:pb-20 laptop:pb-24 desktop:pb-28">
-      <div className="relative mt-8 mb-16 flex w-full flex-col items-center justify-start">
+    <main className="min-h-screen pb-4 tablet:pb-8 laptop:pb-12 desktop:pb-16 desktop-big:pb-20">
+      <div className="relative mb-20 mt-8 flex w-full flex-col items-center justify-start tablet:m-0 tablet:mb-10">
         <Search
           value={searchState}
           styles="tablet:hidden mb-4"
@@ -194,7 +200,7 @@ function Menu(props) {
         <Sorting styles="tablet:hidden top-16 absolute" onChange={handleSort} />
       </div>
       {noItemsFound() ? (
-        <div className="mt-20 w-full text-center font-ui text-xl font-medium text-slate-800">
+        <div className="mt-20 w-full px-4 text-center font-ui text-2xl font-medium text-slate-800 tablet:text-3xl laptop:text-4xl desktop:text-5xl">
           No items could be found.
         </div>
       ) : (
