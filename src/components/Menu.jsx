@@ -201,7 +201,7 @@ function Menu(props) {
       </div>
       {noItemsFound() ? (
         <div className="mt-20 w-full px-4 text-center font-ui text-2xl font-medium text-slate-800 tablet:text-3xl laptop:text-4xl desktop:text-5xl">
-          No items could be found.
+          No items that match "{searchState}" could be found.
         </div>
       ) : (
         ""
