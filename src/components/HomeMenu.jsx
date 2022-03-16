@@ -35,7 +35,7 @@ function HomeMenu(props) {
 
   return (
     <main className="z-10 w-full text-slate-800">
-      <Heading content="Menu" />
+      <Heading styles="mb-2 laptop:mb-0" content="Menu" />
       <Container
         tag="section"
         stylesOut={
@@ -43,7 +43,7 @@ function HomeMenu(props) {
         }
         stylesIn={"flex flex-col"}
       >
-        <DividerTop className="mx-2 mb-8 fill-current text-slate-800 laptop:mb-10" />
+        <DividerTop className="mx-2 mb-8 hidden fill-current text-slate-800 laptop:mb-10 laptop:block" />
         <header className="mb-6 flex w-full flex-row px-3 font-text text-xl font-medium italic text-amber-600 tablet:text-2xl laptop:mb-8 laptop:px-2 desktop:text-3xl">
           <div className="flex w-full flex-row items-start justify-center laptop:mr-4 laptop:w-1/2">
             <div className="w-1/2"></div>
@@ -139,7 +139,7 @@ function HomeMenu(props) {
               )
           )}
         </section>
-        <DividerBottom className="mx-2 mt-8 fill-current text-slate-800 laptop:mt-10" />
+        <DividerBottom className="mx-2 mt-8 hidden fill-current text-slate-800 laptop:mt-10 laptop:block" />
       </Container>
     </main>
   );
